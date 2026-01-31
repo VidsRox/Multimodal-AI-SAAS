@@ -1,0 +1,25 @@
+# Dataset — too large for repo
+sentiment-model/dataset/*
+!sentiment-model/dataset/README.md
+
+# Large archives and model artifacts
+sentiment-model/*.tar.gz
+sentiment-model/deployment/model/
+sentiment-model/deployment/model_normalized/
+sentiment-model/deployment/model.tar.gz
+*.pth
+*.onnx
+
+# Training outputs
+sentiment-model/training/runs/
+
+# Python
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# OS / IDE
+.DS_Store
+._*
