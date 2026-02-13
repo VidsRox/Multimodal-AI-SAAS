@@ -1,5 +1,5 @@
-"use server";
 
+import { redirect } from "next/navigation";
 import CodeExamples from "~/components/client/code-examples";
 import CopyButton from "~/components/client/copy-button";
 import { Inference } from "~/components/client/Inference";
@@ -9,6 +9,11 @@ import { db } from "~/server/db";
 
 export default async function HomePage() {
   const session = await auth();
+
+  // 🔥 CRITICAL FIX
+  if (!session) {
+    redirect("/login");
+  }
 
   const quota = await db.apiQuota.findUniqueOrThrow({
     where: {
