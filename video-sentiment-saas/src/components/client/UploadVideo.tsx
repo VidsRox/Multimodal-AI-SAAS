@@ -16,88 +16,9 @@ function UploadVideo({ apiKey, onAnalysis }: UploadVideoProps) {
   const [error, setError] = useState<string | null>(null);
   const [pollCount, setPollCount] = useState(0);
 
-  const handleUpload = async (file: File) => {
-    try {
-      setStatus("uploading");
-      setError(null);
-      setPollCount(0);
-
-      // Validate file
-      if (file.name.startsWith("._")) {
-        throw new Error("Invalid file - please select the actual video file, not the metadata file");
-      }
-      
-      if (file.size < 1000) {
-        throw new Error(`File too small (${file.size} bytes) - please select a valid video file`);
-      }
-
-      console.log(`Starting upload: ${file.name}, size: ${file.size} bytes`);
-
-      // Step 1: Upload file to S3
-      const formData = new FormData();
-      formData.append("file", file);
-
-      const uploadRes = await fetch("/api/direct-upload", {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer " + apiKey,
-        },
-        body: formData,
-      });
-
-      if (!uploadRes.ok) {
-        const errorData = await uploadRes.json();
-        throw new Error(errorData?.error || "Failed to upload file");
-      }
-
-      const uploadData = await uploadRes.json();
-      console.log(`Upload successful:`, uploadData);
-      
-      // The direct-upload route should return the database record ID
-      // Check what fields are actually returned
-      const videoFileId = uploadData.id || uploadData.fileId;
-      
-      if (!videoFileId) {
-        console.error("Upload response missing ID:", uploadData);
-        throw new Error("Upload succeeded but no file ID returned");
-      }
-
-      console.log(`Using videoFileId: ${videoFileId}`);
-
-      // Step 2: Start analysis (async)
-      setStatus("processing");
-      
-      const analysisRes = await fetch("/api/start-analysis", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + apiKey,
-        },
-        body: JSON.stringify({ fileId: videoFileId }),
-      });
-
-      if (!analysisRes.ok) {
-        const errorData = await analysisRes.json();
-        console.error("Analysis start failed:", errorData);
-        throw new Error(errorData?.error || "Failed to start analysis");
-      }
-
-      const analysisData = await analysisRes.json();
-      console.log("Analysis started:", analysisData);
-
-      // Step 3: Poll for results
-      setStatus("polling");
-      await pollForResults(videoFileId);
-
-    } catch (error) {
-      setError(error instanceof Error ? error.message : "Upload failed");
-      console.error("Upload failed", error);
-      setStatus("idle");
-    }
-  };
-
+  // ✅ Polling function (declared FIRST to avoid TS hoisting error)
   const pollForResults = async (fileId: string) => {
-    const maxAttempts = 60; // Poll for up to 5 minutes
+    const maxAttempts = 60;
     let attempts = 0;
 
     const poll = async (): Promise<void> => {
@@ -122,7 +43,6 @@ function UploadVideo({ apiKey, onAnalysis }: UploadVideoProps) {
         console.log(`Poll #${attempts}:`, data.status);
 
         if (data.status === "completed") {
-          // Success! Analysis complete
           console.log("Analysis complete!", data.analysis);
           onAnalysis(data.analysis);
           setStatus("idle");
@@ -130,12 +50,9 @@ function UploadVideo({ apiKey, onAnalysis }: UploadVideoProps) {
         } else if (data.status === "failed") {
           throw new Error(data.message || "Analysis failed");
         } else if (data.status === "processing") {
-          // Still processing
           if (attempts >= maxAttempts) {
-            throw new Error("Analysis timeout - processing is taking too long");
+            throw new Error("Analysis timeout - processing too long");
           }
-          
-          // Poll again in 5 seconds
           setTimeout(() => poll(), 5000);
         }
       } catch (err) {
@@ -147,6 +64,100 @@ function UploadVideo({ apiKey, onAnalysis }: UploadVideoProps) {
     };
 
     await poll();
+  };
+
+  const handleUpload = async (file: File) => {
+    try {
+      setStatus("uploading");
+      setError(null);
+      setPollCount(0);
+
+      // Validate file
+      if (file.name.startsWith("._")) {
+        throw new Error("Invalid file - select the real video file");
+      }
+
+      if (file.size < 1000) {
+        throw new Error(
+          `File too small (${file.size} bytes) - select a valid video`
+        );
+      }
+
+      console.log(
+        `Starting upload: ${file.name}, size: ${file.size} bytes`
+      );
+
+      // ✅ Step 1: Get signed upload URL
+      const uploadRes = await fetch("/api/direct-upload", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + apiKey,
+        },
+        body: JSON.stringify({
+          fileName: file.name,
+          fileType: file.type,
+        }),
+      });
+
+      if (!uploadRes.ok) {
+        const errorData = await uploadRes.json();
+        throw new Error(errorData?.error || "Failed to get upload URL");
+      }
+
+      const uploadData = await uploadRes.json();
+      const { uploadUrl, fileId } = uploadData;
+
+      if (!uploadUrl || !fileId) {
+        console.error("Invalid upload response:", uploadData);
+        throw new Error("Upload initialization failed");
+      }
+
+      console.log("Uploading directly to S3...");
+
+      // ✅ Step 2: Upload directly to S3
+      const s3Upload = await fetch(uploadUrl, {
+        method: "PUT",
+        headers: {
+          "Content-Type": file.type,
+        },
+        body: file,
+      });
+
+      if (!s3Upload.ok) {
+        throw new Error("Failed to upload to S3");
+      }
+
+      console.log("S3 upload complete");
+
+      // ✅ Step 3: Start analysis
+      setStatus("processing");
+
+      const analysisRes = await fetch("/api/start-analysis", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + apiKey,
+        },
+        body: JSON.stringify({ fileId }),
+      });
+
+      if (!analysisRes.ok) {
+        const errorData = await analysisRes.json();
+        throw new Error(errorData?.error || "Failed to start analysis");
+      }
+
+      console.log("Analysis started");
+
+      // ✅ Step 4: Poll for results
+      setStatus("polling");
+      await pollForResults(fileId);
+
+    } catch (error) {
+      console.error("Upload failed", error);
+      setError(error instanceof Error ? error.message : "Upload failed");
+      setStatus("idle");
+    }
   };
 
   const getStatusText = () => {
@@ -190,7 +201,7 @@ function UploadVideo({ apiKey, onAnalysis }: UploadVideoProps) {
           }`}
         >
           <FiUpload className="min-h-8 min-w-8 text-gray-400" />
-          <h3 className="text-md mt-2 from-indigo-50 text-slate-800">
+          <h3 className="text-md mt-2 text-slate-800">
             {getStatusText()}
           </h3>
           <p className="text-center text-xs text-gray-500">
@@ -198,6 +209,7 @@ function UploadVideo({ apiKey, onAnalysis }: UploadVideoProps) {
           </p>
         </label>
       </div>
+
       {error && <div className="text-sm text-red-500">{error}</div>}
     </div>
   );
