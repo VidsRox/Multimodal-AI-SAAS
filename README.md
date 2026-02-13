@@ -39,7 +39,7 @@ Production-ready sentiment and emotion detection from video using multi-modal de
 
 ## 🚀 Live Demo
 
-**[https://sentiment-ai.vercel.app](https://multimodal-ai-saas.vercel.app)**
+**[https://multimodal-ai-saas.vercel.app](https://multimodal-ai-saas.vercel.app)**
 
 Try it: Upload a video → Get detailed emotion analysis for each spoken utterance
 
