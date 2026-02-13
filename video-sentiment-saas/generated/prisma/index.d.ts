@@ -38,6 +38,21 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * 
  */
 export type VerificationToken = $Result.DefaultSelection<Prisma.$VerificationTokenPayload>
+/**
+ * Model ApiQuota
+ * 
+ */
+export type ApiQuota = $Result.DefaultSelection<Prisma.$ApiQuotaPayload>
+/**
+ * Model VideoFile
+ * 
+ */
+export type VideoFile = $Result.DefaultSelection<Prisma.$VideoFilePayload>
+/**
+ * Model Utterance
+ * 
+ */
+export type Utterance = $Result.DefaultSelection<Prisma.$UtterancePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -206,6 +221,36 @@ export class PrismaClient<
     * ```
     */
   get verificationToken(): Prisma.VerificationTokenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.apiQuota`: Exposes CRUD operations for the **ApiQuota** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ApiQuotas
+    * const apiQuotas = await prisma.apiQuota.findMany()
+    * ```
+    */
+  get apiQuota(): Prisma.ApiQuotaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.videoFile`: Exposes CRUD operations for the **VideoFile** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more VideoFiles
+    * const videoFiles = await prisma.videoFile.findMany()
+    * ```
+    */
+  get videoFile(): Prisma.VideoFileDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.utterance`: Exposes CRUD operations for the **Utterance** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Utterances
+    * const utterances = await prisma.utterance.findMany()
+    * ```
+    */
+  get utterance(): Prisma.UtteranceDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -651,7 +696,10 @@ export namespace Prisma {
     Account: 'Account',
     Session: 'Session',
     User: 'User',
-    VerificationToken: 'VerificationToken'
+    VerificationToken: 'VerificationToken',
+    ApiQuota: 'ApiQuota',
+    VideoFile: 'VideoFile',
+    Utterance: 'Utterance'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -670,7 +718,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "post" | "account" | "session" | "user" | "verificationToken"
+      modelProps: "post" | "account" | "session" | "user" | "verificationToken" | "apiQuota" | "videoFile" | "utterance"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1044,6 +1092,228 @@ export namespace Prisma {
           }
         }
       }
+      ApiQuota: {
+        payload: Prisma.$ApiQuotaPayload<ExtArgs>
+        fields: Prisma.ApiQuotaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ApiQuotaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApiQuotaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ApiQuotaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApiQuotaPayload>
+          }
+          findFirst: {
+            args: Prisma.ApiQuotaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApiQuotaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ApiQuotaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApiQuotaPayload>
+          }
+          findMany: {
+            args: Prisma.ApiQuotaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApiQuotaPayload>[]
+          }
+          create: {
+            args: Prisma.ApiQuotaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApiQuotaPayload>
+          }
+          createMany: {
+            args: Prisma.ApiQuotaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ApiQuotaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApiQuotaPayload>[]
+          }
+          delete: {
+            args: Prisma.ApiQuotaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApiQuotaPayload>
+          }
+          update: {
+            args: Prisma.ApiQuotaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApiQuotaPayload>
+          }
+          deleteMany: {
+            args: Prisma.ApiQuotaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ApiQuotaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ApiQuotaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApiQuotaPayload>[]
+          }
+          upsert: {
+            args: Prisma.ApiQuotaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApiQuotaPayload>
+          }
+          aggregate: {
+            args: Prisma.ApiQuotaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateApiQuota>
+          }
+          groupBy: {
+            args: Prisma.ApiQuotaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ApiQuotaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ApiQuotaCountArgs<ExtArgs>
+            result: $Utils.Optional<ApiQuotaCountAggregateOutputType> | number
+          }
+        }
+      }
+      VideoFile: {
+        payload: Prisma.$VideoFilePayload<ExtArgs>
+        fields: Prisma.VideoFileFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.VideoFileFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoFilePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.VideoFileFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoFilePayload>
+          }
+          findFirst: {
+            args: Prisma.VideoFileFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoFilePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.VideoFileFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoFilePayload>
+          }
+          findMany: {
+            args: Prisma.VideoFileFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoFilePayload>[]
+          }
+          create: {
+            args: Prisma.VideoFileCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoFilePayload>
+          }
+          createMany: {
+            args: Prisma.VideoFileCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.VideoFileCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoFilePayload>[]
+          }
+          delete: {
+            args: Prisma.VideoFileDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoFilePayload>
+          }
+          update: {
+            args: Prisma.VideoFileUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoFilePayload>
+          }
+          deleteMany: {
+            args: Prisma.VideoFileDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.VideoFileUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.VideoFileUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoFilePayload>[]
+          }
+          upsert: {
+            args: Prisma.VideoFileUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VideoFilePayload>
+          }
+          aggregate: {
+            args: Prisma.VideoFileAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVideoFile>
+          }
+          groupBy: {
+            args: Prisma.VideoFileGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VideoFileGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.VideoFileCountArgs<ExtArgs>
+            result: $Utils.Optional<VideoFileCountAggregateOutputType> | number
+          }
+        }
+      }
+      Utterance: {
+        payload: Prisma.$UtterancePayload<ExtArgs>
+        fields: Prisma.UtteranceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UtteranceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UtterancePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UtteranceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UtterancePayload>
+          }
+          findFirst: {
+            args: Prisma.UtteranceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UtterancePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UtteranceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UtterancePayload>
+          }
+          findMany: {
+            args: Prisma.UtteranceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UtterancePayload>[]
+          }
+          create: {
+            args: Prisma.UtteranceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UtterancePayload>
+          }
+          createMany: {
+            args: Prisma.UtteranceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UtteranceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UtterancePayload>[]
+          }
+          delete: {
+            args: Prisma.UtteranceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UtterancePayload>
+          }
+          update: {
+            args: Prisma.UtteranceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UtterancePayload>
+          }
+          deleteMany: {
+            args: Prisma.UtteranceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UtteranceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.UtteranceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UtterancePayload>[]
+          }
+          upsert: {
+            args: Prisma.UtteranceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UtterancePayload>
+          }
+          aggregate: {
+            args: Prisma.UtteranceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUtterance>
+          }
+          groupBy: {
+            args: Prisma.UtteranceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UtteranceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UtteranceCountArgs<ExtArgs>
+            result: $Utils.Optional<UtteranceCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1145,6 +1415,9 @@ export namespace Prisma {
     session?: SessionOmit
     user?: UserOmit
     verificationToken?: VerificationTokenOmit
+    apiQuota?: ApiQuotaOmit
+    videoFile?: VideoFileOmit
+    utterance?: UtteranceOmit
   }
 
   /* Types for Logging */
@@ -1228,12 +1501,14 @@ export namespace Prisma {
     accounts: number
     sessions: number
     posts: number
+    videoFiles: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     posts?: boolean | UserCountOutputTypeCountPostsArgs
+    videoFiles?: boolean | UserCountOutputTypeCountVideoFilesArgs
   }
 
   // Custom InputTypes
@@ -1266,6 +1541,44 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PostWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountVideoFilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VideoFileWhereInput
+  }
+
+
+  /**
+   * Count Type VideoFileCountOutputType
+   */
+
+  export type VideoFileCountOutputType = {
+    utterances: number
+  }
+
+  export type VideoFileCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    utterances?: boolean | VideoFileCountOutputTypeCountUtterancesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * VideoFileCountOutputType without action
+   */
+  export type VideoFileCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFileCountOutputType
+     */
+    select?: VideoFileCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * VideoFileCountOutputType without action
+   */
+  export type VideoFileCountOutputTypeCountUtterancesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UtteranceWhereInput
   }
 
 
@@ -4779,6 +5092,8 @@ export namespace Prisma {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     posts?: boolean | User$postsArgs<ExtArgs>
+    apiQuota?: boolean | User$apiQuotaArgs<ExtArgs>
+    videoFiles?: boolean | User$videoFilesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -4814,6 +5129,8 @@ export namespace Prisma {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     posts?: boolean | User$postsArgs<ExtArgs>
+    apiQuota?: boolean | User$apiQuotaArgs<ExtArgs>
+    videoFiles?: boolean | User$videoFilesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -4825,6 +5142,8 @@ export namespace Prisma {
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       posts: Prisma.$PostPayload<ExtArgs>[]
+      apiQuota: Prisma.$ApiQuotaPayload<ExtArgs> | null
+      videoFiles: Prisma.$VideoFilePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5230,6 +5549,8 @@ export namespace Prisma {
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     posts<T extends User$postsArgs<ExtArgs> = {}>(args?: Subset<T, User$postsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PostPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    apiQuota<T extends User$apiQuotaArgs<ExtArgs> = {}>(args?: Subset<T, User$apiQuotaArgs<ExtArgs>>): Prisma__ApiQuotaClient<$Result.GetResult<Prisma.$ApiQuotaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    videoFiles<T extends User$videoFilesArgs<ExtArgs> = {}>(args?: Subset<T, User$videoFilesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5720,6 +6041,49 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PostScalarFieldEnum | PostScalarFieldEnum[]
+  }
+
+  /**
+   * User.apiQuota
+   */
+  export type User$apiQuotaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaInclude<ExtArgs> | null
+    where?: ApiQuotaWhereInput
+  }
+
+  /**
+   * User.videoFiles
+   */
+  export type User$videoFilesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileInclude<ExtArgs> | null
+    where?: VideoFileWhereInput
+    orderBy?: VideoFileOrderByWithRelationInput | VideoFileOrderByWithRelationInput[]
+    cursor?: VideoFileWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: VideoFileScalarFieldEnum | VideoFileScalarFieldEnum[]
   }
 
   /**
@@ -6709,6 +7073,3311 @@ export namespace Prisma {
 
 
   /**
+   * Model ApiQuota
+   */
+
+  export type AggregateApiQuota = {
+    _count: ApiQuotaCountAggregateOutputType | null
+    _avg: ApiQuotaAvgAggregateOutputType | null
+    _sum: ApiQuotaSumAggregateOutputType | null
+    _min: ApiQuotaMinAggregateOutputType | null
+    _max: ApiQuotaMaxAggregateOutputType | null
+  }
+
+  export type ApiQuotaAvgAggregateOutputType = {
+    requestUsed: number | null
+    maxRequests: number | null
+  }
+
+  export type ApiQuotaSumAggregateOutputType = {
+    requestUsed: number | null
+    maxRequests: number | null
+  }
+
+  export type ApiQuotaMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    requestUsed: number | null
+    maxRequests: number | null
+    lastResetDate: Date | null
+    secretKey: string | null
+  }
+
+  export type ApiQuotaMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    requestUsed: number | null
+    maxRequests: number | null
+    lastResetDate: Date | null
+    secretKey: string | null
+  }
+
+  export type ApiQuotaCountAggregateOutputType = {
+    id: number
+    userId: number
+    requestUsed: number
+    maxRequests: number
+    lastResetDate: number
+    secretKey: number
+    _all: number
+  }
+
+
+  export type ApiQuotaAvgAggregateInputType = {
+    requestUsed?: true
+    maxRequests?: true
+  }
+
+  export type ApiQuotaSumAggregateInputType = {
+    requestUsed?: true
+    maxRequests?: true
+  }
+
+  export type ApiQuotaMinAggregateInputType = {
+    id?: true
+    userId?: true
+    requestUsed?: true
+    maxRequests?: true
+    lastResetDate?: true
+    secretKey?: true
+  }
+
+  export type ApiQuotaMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    requestUsed?: true
+    maxRequests?: true
+    lastResetDate?: true
+    secretKey?: true
+  }
+
+  export type ApiQuotaCountAggregateInputType = {
+    id?: true
+    userId?: true
+    requestUsed?: true
+    maxRequests?: true
+    lastResetDate?: true
+    secretKey?: true
+    _all?: true
+  }
+
+  export type ApiQuotaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ApiQuota to aggregate.
+     */
+    where?: ApiQuotaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ApiQuotas to fetch.
+     */
+    orderBy?: ApiQuotaOrderByWithRelationInput | ApiQuotaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ApiQuotaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ApiQuotas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ApiQuotas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ApiQuotas
+    **/
+    _count?: true | ApiQuotaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ApiQuotaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ApiQuotaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ApiQuotaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ApiQuotaMaxAggregateInputType
+  }
+
+  export type GetApiQuotaAggregateType<T extends ApiQuotaAggregateArgs> = {
+        [P in keyof T & keyof AggregateApiQuota]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateApiQuota[P]>
+      : GetScalarType<T[P], AggregateApiQuota[P]>
+  }
+
+
+
+
+  export type ApiQuotaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApiQuotaWhereInput
+    orderBy?: ApiQuotaOrderByWithAggregationInput | ApiQuotaOrderByWithAggregationInput[]
+    by: ApiQuotaScalarFieldEnum[] | ApiQuotaScalarFieldEnum
+    having?: ApiQuotaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ApiQuotaCountAggregateInputType | true
+    _avg?: ApiQuotaAvgAggregateInputType
+    _sum?: ApiQuotaSumAggregateInputType
+    _min?: ApiQuotaMinAggregateInputType
+    _max?: ApiQuotaMaxAggregateInputType
+  }
+
+  export type ApiQuotaGroupByOutputType = {
+    id: string
+    userId: string
+    requestUsed: number
+    maxRequests: number
+    lastResetDate: Date
+    secretKey: string
+    _count: ApiQuotaCountAggregateOutputType | null
+    _avg: ApiQuotaAvgAggregateOutputType | null
+    _sum: ApiQuotaSumAggregateOutputType | null
+    _min: ApiQuotaMinAggregateOutputType | null
+    _max: ApiQuotaMaxAggregateOutputType | null
+  }
+
+  type GetApiQuotaGroupByPayload<T extends ApiQuotaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ApiQuotaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ApiQuotaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ApiQuotaGroupByOutputType[P]>
+            : GetScalarType<T[P], ApiQuotaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ApiQuotaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    requestUsed?: boolean
+    maxRequests?: boolean
+    lastResetDate?: boolean
+    secretKey?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["apiQuota"]>
+
+  export type ApiQuotaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    requestUsed?: boolean
+    maxRequests?: boolean
+    lastResetDate?: boolean
+    secretKey?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["apiQuota"]>
+
+  export type ApiQuotaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    requestUsed?: boolean
+    maxRequests?: boolean
+    lastResetDate?: boolean
+    secretKey?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["apiQuota"]>
+
+  export type ApiQuotaSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    requestUsed?: boolean
+    maxRequests?: boolean
+    lastResetDate?: boolean
+    secretKey?: boolean
+  }
+
+  export type ApiQuotaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "requestUsed" | "maxRequests" | "lastResetDate" | "secretKey", ExtArgs["result"]["apiQuota"]>
+  export type ApiQuotaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type ApiQuotaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type ApiQuotaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $ApiQuotaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ApiQuota"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      requestUsed: number
+      maxRequests: number
+      lastResetDate: Date
+      secretKey: string
+    }, ExtArgs["result"]["apiQuota"]>
+    composites: {}
+  }
+
+  type ApiQuotaGetPayload<S extends boolean | null | undefined | ApiQuotaDefaultArgs> = $Result.GetResult<Prisma.$ApiQuotaPayload, S>
+
+  type ApiQuotaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ApiQuotaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ApiQuotaCountAggregateInputType | true
+    }
+
+  export interface ApiQuotaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ApiQuota'], meta: { name: 'ApiQuota' } }
+    /**
+     * Find zero or one ApiQuota that matches the filter.
+     * @param {ApiQuotaFindUniqueArgs} args - Arguments to find a ApiQuota
+     * @example
+     * // Get one ApiQuota
+     * const apiQuota = await prisma.apiQuota.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ApiQuotaFindUniqueArgs>(args: SelectSubset<T, ApiQuotaFindUniqueArgs<ExtArgs>>): Prisma__ApiQuotaClient<$Result.GetResult<Prisma.$ApiQuotaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ApiQuota that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ApiQuotaFindUniqueOrThrowArgs} args - Arguments to find a ApiQuota
+     * @example
+     * // Get one ApiQuota
+     * const apiQuota = await prisma.apiQuota.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ApiQuotaFindUniqueOrThrowArgs>(args: SelectSubset<T, ApiQuotaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ApiQuotaClient<$Result.GetResult<Prisma.$ApiQuotaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ApiQuota that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApiQuotaFindFirstArgs} args - Arguments to find a ApiQuota
+     * @example
+     * // Get one ApiQuota
+     * const apiQuota = await prisma.apiQuota.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ApiQuotaFindFirstArgs>(args?: SelectSubset<T, ApiQuotaFindFirstArgs<ExtArgs>>): Prisma__ApiQuotaClient<$Result.GetResult<Prisma.$ApiQuotaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ApiQuota that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApiQuotaFindFirstOrThrowArgs} args - Arguments to find a ApiQuota
+     * @example
+     * // Get one ApiQuota
+     * const apiQuota = await prisma.apiQuota.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ApiQuotaFindFirstOrThrowArgs>(args?: SelectSubset<T, ApiQuotaFindFirstOrThrowArgs<ExtArgs>>): Prisma__ApiQuotaClient<$Result.GetResult<Prisma.$ApiQuotaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ApiQuotas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApiQuotaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ApiQuotas
+     * const apiQuotas = await prisma.apiQuota.findMany()
+     * 
+     * // Get first 10 ApiQuotas
+     * const apiQuotas = await prisma.apiQuota.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const apiQuotaWithIdOnly = await prisma.apiQuota.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ApiQuotaFindManyArgs>(args?: SelectSubset<T, ApiQuotaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApiQuotaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ApiQuota.
+     * @param {ApiQuotaCreateArgs} args - Arguments to create a ApiQuota.
+     * @example
+     * // Create one ApiQuota
+     * const ApiQuota = await prisma.apiQuota.create({
+     *   data: {
+     *     // ... data to create a ApiQuota
+     *   }
+     * })
+     * 
+     */
+    create<T extends ApiQuotaCreateArgs>(args: SelectSubset<T, ApiQuotaCreateArgs<ExtArgs>>): Prisma__ApiQuotaClient<$Result.GetResult<Prisma.$ApiQuotaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ApiQuotas.
+     * @param {ApiQuotaCreateManyArgs} args - Arguments to create many ApiQuotas.
+     * @example
+     * // Create many ApiQuotas
+     * const apiQuota = await prisma.apiQuota.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ApiQuotaCreateManyArgs>(args?: SelectSubset<T, ApiQuotaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ApiQuotas and returns the data saved in the database.
+     * @param {ApiQuotaCreateManyAndReturnArgs} args - Arguments to create many ApiQuotas.
+     * @example
+     * // Create many ApiQuotas
+     * const apiQuota = await prisma.apiQuota.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ApiQuotas and only return the `id`
+     * const apiQuotaWithIdOnly = await prisma.apiQuota.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ApiQuotaCreateManyAndReturnArgs>(args?: SelectSubset<T, ApiQuotaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApiQuotaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ApiQuota.
+     * @param {ApiQuotaDeleteArgs} args - Arguments to delete one ApiQuota.
+     * @example
+     * // Delete one ApiQuota
+     * const ApiQuota = await prisma.apiQuota.delete({
+     *   where: {
+     *     // ... filter to delete one ApiQuota
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ApiQuotaDeleteArgs>(args: SelectSubset<T, ApiQuotaDeleteArgs<ExtArgs>>): Prisma__ApiQuotaClient<$Result.GetResult<Prisma.$ApiQuotaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ApiQuota.
+     * @param {ApiQuotaUpdateArgs} args - Arguments to update one ApiQuota.
+     * @example
+     * // Update one ApiQuota
+     * const apiQuota = await prisma.apiQuota.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ApiQuotaUpdateArgs>(args: SelectSubset<T, ApiQuotaUpdateArgs<ExtArgs>>): Prisma__ApiQuotaClient<$Result.GetResult<Prisma.$ApiQuotaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ApiQuotas.
+     * @param {ApiQuotaDeleteManyArgs} args - Arguments to filter ApiQuotas to delete.
+     * @example
+     * // Delete a few ApiQuotas
+     * const { count } = await prisma.apiQuota.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ApiQuotaDeleteManyArgs>(args?: SelectSubset<T, ApiQuotaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ApiQuotas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApiQuotaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ApiQuotas
+     * const apiQuota = await prisma.apiQuota.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ApiQuotaUpdateManyArgs>(args: SelectSubset<T, ApiQuotaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ApiQuotas and returns the data updated in the database.
+     * @param {ApiQuotaUpdateManyAndReturnArgs} args - Arguments to update many ApiQuotas.
+     * @example
+     * // Update many ApiQuotas
+     * const apiQuota = await prisma.apiQuota.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ApiQuotas and only return the `id`
+     * const apiQuotaWithIdOnly = await prisma.apiQuota.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ApiQuotaUpdateManyAndReturnArgs>(args: SelectSubset<T, ApiQuotaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApiQuotaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ApiQuota.
+     * @param {ApiQuotaUpsertArgs} args - Arguments to update or create a ApiQuota.
+     * @example
+     * // Update or create a ApiQuota
+     * const apiQuota = await prisma.apiQuota.upsert({
+     *   create: {
+     *     // ... data to create a ApiQuota
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ApiQuota we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ApiQuotaUpsertArgs>(args: SelectSubset<T, ApiQuotaUpsertArgs<ExtArgs>>): Prisma__ApiQuotaClient<$Result.GetResult<Prisma.$ApiQuotaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ApiQuotas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApiQuotaCountArgs} args - Arguments to filter ApiQuotas to count.
+     * @example
+     * // Count the number of ApiQuotas
+     * const count = await prisma.apiQuota.count({
+     *   where: {
+     *     // ... the filter for the ApiQuotas we want to count
+     *   }
+     * })
+    **/
+    count<T extends ApiQuotaCountArgs>(
+      args?: Subset<T, ApiQuotaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ApiQuotaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ApiQuota.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApiQuotaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ApiQuotaAggregateArgs>(args: Subset<T, ApiQuotaAggregateArgs>): Prisma.PrismaPromise<GetApiQuotaAggregateType<T>>
+
+    /**
+     * Group by ApiQuota.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApiQuotaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ApiQuotaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ApiQuotaGroupByArgs['orderBy'] }
+        : { orderBy?: ApiQuotaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ApiQuotaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetApiQuotaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ApiQuota model
+   */
+  readonly fields: ApiQuotaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ApiQuota.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ApiQuotaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ApiQuota model
+   */
+  interface ApiQuotaFieldRefs {
+    readonly id: FieldRef<"ApiQuota", 'String'>
+    readonly userId: FieldRef<"ApiQuota", 'String'>
+    readonly requestUsed: FieldRef<"ApiQuota", 'Int'>
+    readonly maxRequests: FieldRef<"ApiQuota", 'Int'>
+    readonly lastResetDate: FieldRef<"ApiQuota", 'DateTime'>
+    readonly secretKey: FieldRef<"ApiQuota", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ApiQuota findUnique
+   */
+  export type ApiQuotaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaInclude<ExtArgs> | null
+    /**
+     * Filter, which ApiQuota to fetch.
+     */
+    where: ApiQuotaWhereUniqueInput
+  }
+
+  /**
+   * ApiQuota findUniqueOrThrow
+   */
+  export type ApiQuotaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaInclude<ExtArgs> | null
+    /**
+     * Filter, which ApiQuota to fetch.
+     */
+    where: ApiQuotaWhereUniqueInput
+  }
+
+  /**
+   * ApiQuota findFirst
+   */
+  export type ApiQuotaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaInclude<ExtArgs> | null
+    /**
+     * Filter, which ApiQuota to fetch.
+     */
+    where?: ApiQuotaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ApiQuotas to fetch.
+     */
+    orderBy?: ApiQuotaOrderByWithRelationInput | ApiQuotaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ApiQuotas.
+     */
+    cursor?: ApiQuotaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ApiQuotas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ApiQuotas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ApiQuotas.
+     */
+    distinct?: ApiQuotaScalarFieldEnum | ApiQuotaScalarFieldEnum[]
+  }
+
+  /**
+   * ApiQuota findFirstOrThrow
+   */
+  export type ApiQuotaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaInclude<ExtArgs> | null
+    /**
+     * Filter, which ApiQuota to fetch.
+     */
+    where?: ApiQuotaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ApiQuotas to fetch.
+     */
+    orderBy?: ApiQuotaOrderByWithRelationInput | ApiQuotaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ApiQuotas.
+     */
+    cursor?: ApiQuotaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ApiQuotas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ApiQuotas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ApiQuotas.
+     */
+    distinct?: ApiQuotaScalarFieldEnum | ApiQuotaScalarFieldEnum[]
+  }
+
+  /**
+   * ApiQuota findMany
+   */
+  export type ApiQuotaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaInclude<ExtArgs> | null
+    /**
+     * Filter, which ApiQuotas to fetch.
+     */
+    where?: ApiQuotaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ApiQuotas to fetch.
+     */
+    orderBy?: ApiQuotaOrderByWithRelationInput | ApiQuotaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ApiQuotas.
+     */
+    cursor?: ApiQuotaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ApiQuotas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ApiQuotas.
+     */
+    skip?: number
+    distinct?: ApiQuotaScalarFieldEnum | ApiQuotaScalarFieldEnum[]
+  }
+
+  /**
+   * ApiQuota create
+   */
+  export type ApiQuotaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ApiQuota.
+     */
+    data: XOR<ApiQuotaCreateInput, ApiQuotaUncheckedCreateInput>
+  }
+
+  /**
+   * ApiQuota createMany
+   */
+  export type ApiQuotaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ApiQuotas.
+     */
+    data: ApiQuotaCreateManyInput | ApiQuotaCreateManyInput[]
+  }
+
+  /**
+   * ApiQuota createManyAndReturn
+   */
+  export type ApiQuotaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * The data used to create many ApiQuotas.
+     */
+    data: ApiQuotaCreateManyInput | ApiQuotaCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ApiQuota update
+   */
+  export type ApiQuotaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ApiQuota.
+     */
+    data: XOR<ApiQuotaUpdateInput, ApiQuotaUncheckedUpdateInput>
+    /**
+     * Choose, which ApiQuota to update.
+     */
+    where: ApiQuotaWhereUniqueInput
+  }
+
+  /**
+   * ApiQuota updateMany
+   */
+  export type ApiQuotaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ApiQuotas.
+     */
+    data: XOR<ApiQuotaUpdateManyMutationInput, ApiQuotaUncheckedUpdateManyInput>
+    /**
+     * Filter which ApiQuotas to update
+     */
+    where?: ApiQuotaWhereInput
+    /**
+     * Limit how many ApiQuotas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ApiQuota updateManyAndReturn
+   */
+  export type ApiQuotaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * The data used to update ApiQuotas.
+     */
+    data: XOR<ApiQuotaUpdateManyMutationInput, ApiQuotaUncheckedUpdateManyInput>
+    /**
+     * Filter which ApiQuotas to update
+     */
+    where?: ApiQuotaWhereInput
+    /**
+     * Limit how many ApiQuotas to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ApiQuota upsert
+   */
+  export type ApiQuotaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ApiQuota to update in case it exists.
+     */
+    where: ApiQuotaWhereUniqueInput
+    /**
+     * In case the ApiQuota found by the `where` argument doesn't exist, create a new ApiQuota with this data.
+     */
+    create: XOR<ApiQuotaCreateInput, ApiQuotaUncheckedCreateInput>
+    /**
+     * In case the ApiQuota was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ApiQuotaUpdateInput, ApiQuotaUncheckedUpdateInput>
+  }
+
+  /**
+   * ApiQuota delete
+   */
+  export type ApiQuotaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaInclude<ExtArgs> | null
+    /**
+     * Filter which ApiQuota to delete.
+     */
+    where: ApiQuotaWhereUniqueInput
+  }
+
+  /**
+   * ApiQuota deleteMany
+   */
+  export type ApiQuotaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ApiQuotas to delete
+     */
+    where?: ApiQuotaWhereInput
+    /**
+     * Limit how many ApiQuotas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ApiQuota without action
+   */
+  export type ApiQuotaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApiQuota
+     */
+    select?: ApiQuotaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApiQuota
+     */
+    omit?: ApiQuotaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApiQuotaInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model VideoFile
+   */
+
+  export type AggregateVideoFile = {
+    _count: VideoFileCountAggregateOutputType | null
+    _min: VideoFileMinAggregateOutputType | null
+    _max: VideoFileMaxAggregateOutputType | null
+  }
+
+  export type VideoFileMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    key: string | null
+    analyzed: boolean | null
+    createdAt: Date | null
+  }
+
+  export type VideoFileMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    key: string | null
+    analyzed: boolean | null
+    createdAt: Date | null
+  }
+
+  export type VideoFileCountAggregateOutputType = {
+    id: number
+    userId: number
+    key: number
+    analyzed: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type VideoFileMinAggregateInputType = {
+    id?: true
+    userId?: true
+    key?: true
+    analyzed?: true
+    createdAt?: true
+  }
+
+  export type VideoFileMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    key?: true
+    analyzed?: true
+    createdAt?: true
+  }
+
+  export type VideoFileCountAggregateInputType = {
+    id?: true
+    userId?: true
+    key?: true
+    analyzed?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type VideoFileAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which VideoFile to aggregate.
+     */
+    where?: VideoFileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VideoFiles to fetch.
+     */
+    orderBy?: VideoFileOrderByWithRelationInput | VideoFileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: VideoFileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VideoFiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VideoFiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned VideoFiles
+    **/
+    _count?: true | VideoFileCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: VideoFileMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: VideoFileMaxAggregateInputType
+  }
+
+  export type GetVideoFileAggregateType<T extends VideoFileAggregateArgs> = {
+        [P in keyof T & keyof AggregateVideoFile]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateVideoFile[P]>
+      : GetScalarType<T[P], AggregateVideoFile[P]>
+  }
+
+
+
+
+  export type VideoFileGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VideoFileWhereInput
+    orderBy?: VideoFileOrderByWithAggregationInput | VideoFileOrderByWithAggregationInput[]
+    by: VideoFileScalarFieldEnum[] | VideoFileScalarFieldEnum
+    having?: VideoFileScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: VideoFileCountAggregateInputType | true
+    _min?: VideoFileMinAggregateInputType
+    _max?: VideoFileMaxAggregateInputType
+  }
+
+  export type VideoFileGroupByOutputType = {
+    id: string
+    userId: string
+    key: string
+    analyzed: boolean
+    createdAt: Date
+    _count: VideoFileCountAggregateOutputType | null
+    _min: VideoFileMinAggregateOutputType | null
+    _max: VideoFileMaxAggregateOutputType | null
+  }
+
+  type GetVideoFileGroupByPayload<T extends VideoFileGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<VideoFileGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof VideoFileGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], VideoFileGroupByOutputType[P]>
+            : GetScalarType<T[P], VideoFileGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type VideoFileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    key?: boolean
+    analyzed?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    utterances?: boolean | VideoFile$utterancesArgs<ExtArgs>
+    _count?: boolean | VideoFileCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["videoFile"]>
+
+  export type VideoFileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    key?: boolean
+    analyzed?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["videoFile"]>
+
+  export type VideoFileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    key?: boolean
+    analyzed?: boolean
+    createdAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["videoFile"]>
+
+  export type VideoFileSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    key?: boolean
+    analyzed?: boolean
+    createdAt?: boolean
+  }
+
+  export type VideoFileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "key" | "analyzed" | "createdAt", ExtArgs["result"]["videoFile"]>
+  export type VideoFileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    utterances?: boolean | VideoFile$utterancesArgs<ExtArgs>
+    _count?: boolean | VideoFileCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type VideoFileIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type VideoFileIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $VideoFilePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "VideoFile"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      utterances: Prisma.$UtterancePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      key: string
+      analyzed: boolean
+      createdAt: Date
+    }, ExtArgs["result"]["videoFile"]>
+    composites: {}
+  }
+
+  type VideoFileGetPayload<S extends boolean | null | undefined | VideoFileDefaultArgs> = $Result.GetResult<Prisma.$VideoFilePayload, S>
+
+  type VideoFileCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<VideoFileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VideoFileCountAggregateInputType | true
+    }
+
+  export interface VideoFileDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['VideoFile'], meta: { name: 'VideoFile' } }
+    /**
+     * Find zero or one VideoFile that matches the filter.
+     * @param {VideoFileFindUniqueArgs} args - Arguments to find a VideoFile
+     * @example
+     * // Get one VideoFile
+     * const videoFile = await prisma.videoFile.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends VideoFileFindUniqueArgs>(args: SelectSubset<T, VideoFileFindUniqueArgs<ExtArgs>>): Prisma__VideoFileClient<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one VideoFile that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {VideoFileFindUniqueOrThrowArgs} args - Arguments to find a VideoFile
+     * @example
+     * // Get one VideoFile
+     * const videoFile = await prisma.videoFile.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends VideoFileFindUniqueOrThrowArgs>(args: SelectSubset<T, VideoFileFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VideoFileClient<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first VideoFile that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoFileFindFirstArgs} args - Arguments to find a VideoFile
+     * @example
+     * // Get one VideoFile
+     * const videoFile = await prisma.videoFile.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends VideoFileFindFirstArgs>(args?: SelectSubset<T, VideoFileFindFirstArgs<ExtArgs>>): Prisma__VideoFileClient<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first VideoFile that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoFileFindFirstOrThrowArgs} args - Arguments to find a VideoFile
+     * @example
+     * // Get one VideoFile
+     * const videoFile = await prisma.videoFile.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends VideoFileFindFirstOrThrowArgs>(args?: SelectSubset<T, VideoFileFindFirstOrThrowArgs<ExtArgs>>): Prisma__VideoFileClient<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more VideoFiles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoFileFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all VideoFiles
+     * const videoFiles = await prisma.videoFile.findMany()
+     * 
+     * // Get first 10 VideoFiles
+     * const videoFiles = await prisma.videoFile.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const videoFileWithIdOnly = await prisma.videoFile.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends VideoFileFindManyArgs>(args?: SelectSubset<T, VideoFileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a VideoFile.
+     * @param {VideoFileCreateArgs} args - Arguments to create a VideoFile.
+     * @example
+     * // Create one VideoFile
+     * const VideoFile = await prisma.videoFile.create({
+     *   data: {
+     *     // ... data to create a VideoFile
+     *   }
+     * })
+     * 
+     */
+    create<T extends VideoFileCreateArgs>(args: SelectSubset<T, VideoFileCreateArgs<ExtArgs>>): Prisma__VideoFileClient<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many VideoFiles.
+     * @param {VideoFileCreateManyArgs} args - Arguments to create many VideoFiles.
+     * @example
+     * // Create many VideoFiles
+     * const videoFile = await prisma.videoFile.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends VideoFileCreateManyArgs>(args?: SelectSubset<T, VideoFileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many VideoFiles and returns the data saved in the database.
+     * @param {VideoFileCreateManyAndReturnArgs} args - Arguments to create many VideoFiles.
+     * @example
+     * // Create many VideoFiles
+     * const videoFile = await prisma.videoFile.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many VideoFiles and only return the `id`
+     * const videoFileWithIdOnly = await prisma.videoFile.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends VideoFileCreateManyAndReturnArgs>(args?: SelectSubset<T, VideoFileCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a VideoFile.
+     * @param {VideoFileDeleteArgs} args - Arguments to delete one VideoFile.
+     * @example
+     * // Delete one VideoFile
+     * const VideoFile = await prisma.videoFile.delete({
+     *   where: {
+     *     // ... filter to delete one VideoFile
+     *   }
+     * })
+     * 
+     */
+    delete<T extends VideoFileDeleteArgs>(args: SelectSubset<T, VideoFileDeleteArgs<ExtArgs>>): Prisma__VideoFileClient<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one VideoFile.
+     * @param {VideoFileUpdateArgs} args - Arguments to update one VideoFile.
+     * @example
+     * // Update one VideoFile
+     * const videoFile = await prisma.videoFile.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends VideoFileUpdateArgs>(args: SelectSubset<T, VideoFileUpdateArgs<ExtArgs>>): Prisma__VideoFileClient<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more VideoFiles.
+     * @param {VideoFileDeleteManyArgs} args - Arguments to filter VideoFiles to delete.
+     * @example
+     * // Delete a few VideoFiles
+     * const { count } = await prisma.videoFile.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends VideoFileDeleteManyArgs>(args?: SelectSubset<T, VideoFileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more VideoFiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoFileUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many VideoFiles
+     * const videoFile = await prisma.videoFile.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends VideoFileUpdateManyArgs>(args: SelectSubset<T, VideoFileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more VideoFiles and returns the data updated in the database.
+     * @param {VideoFileUpdateManyAndReturnArgs} args - Arguments to update many VideoFiles.
+     * @example
+     * // Update many VideoFiles
+     * const videoFile = await prisma.videoFile.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more VideoFiles and only return the `id`
+     * const videoFileWithIdOnly = await prisma.videoFile.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends VideoFileUpdateManyAndReturnArgs>(args: SelectSubset<T, VideoFileUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one VideoFile.
+     * @param {VideoFileUpsertArgs} args - Arguments to update or create a VideoFile.
+     * @example
+     * // Update or create a VideoFile
+     * const videoFile = await prisma.videoFile.upsert({
+     *   create: {
+     *     // ... data to create a VideoFile
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the VideoFile we want to update
+     *   }
+     * })
+     */
+    upsert<T extends VideoFileUpsertArgs>(args: SelectSubset<T, VideoFileUpsertArgs<ExtArgs>>): Prisma__VideoFileClient<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of VideoFiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoFileCountArgs} args - Arguments to filter VideoFiles to count.
+     * @example
+     * // Count the number of VideoFiles
+     * const count = await prisma.videoFile.count({
+     *   where: {
+     *     // ... the filter for the VideoFiles we want to count
+     *   }
+     * })
+    **/
+    count<T extends VideoFileCountArgs>(
+      args?: Subset<T, VideoFileCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], VideoFileCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a VideoFile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoFileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends VideoFileAggregateArgs>(args: Subset<T, VideoFileAggregateArgs>): Prisma.PrismaPromise<GetVideoFileAggregateType<T>>
+
+    /**
+     * Group by VideoFile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VideoFileGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends VideoFileGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: VideoFileGroupByArgs['orderBy'] }
+        : { orderBy?: VideoFileGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, VideoFileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVideoFileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the VideoFile model
+   */
+  readonly fields: VideoFileFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for VideoFile.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__VideoFileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    utterances<T extends VideoFile$utterancesArgs<ExtArgs> = {}>(args?: Subset<T, VideoFile$utterancesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UtterancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the VideoFile model
+   */
+  interface VideoFileFieldRefs {
+    readonly id: FieldRef<"VideoFile", 'String'>
+    readonly userId: FieldRef<"VideoFile", 'String'>
+    readonly key: FieldRef<"VideoFile", 'String'>
+    readonly analyzed: FieldRef<"VideoFile", 'Boolean'>
+    readonly createdAt: FieldRef<"VideoFile", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * VideoFile findUnique
+   */
+  export type VideoFileFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileInclude<ExtArgs> | null
+    /**
+     * Filter, which VideoFile to fetch.
+     */
+    where: VideoFileWhereUniqueInput
+  }
+
+  /**
+   * VideoFile findUniqueOrThrow
+   */
+  export type VideoFileFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileInclude<ExtArgs> | null
+    /**
+     * Filter, which VideoFile to fetch.
+     */
+    where: VideoFileWhereUniqueInput
+  }
+
+  /**
+   * VideoFile findFirst
+   */
+  export type VideoFileFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileInclude<ExtArgs> | null
+    /**
+     * Filter, which VideoFile to fetch.
+     */
+    where?: VideoFileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VideoFiles to fetch.
+     */
+    orderBy?: VideoFileOrderByWithRelationInput | VideoFileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for VideoFiles.
+     */
+    cursor?: VideoFileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VideoFiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VideoFiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of VideoFiles.
+     */
+    distinct?: VideoFileScalarFieldEnum | VideoFileScalarFieldEnum[]
+  }
+
+  /**
+   * VideoFile findFirstOrThrow
+   */
+  export type VideoFileFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileInclude<ExtArgs> | null
+    /**
+     * Filter, which VideoFile to fetch.
+     */
+    where?: VideoFileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VideoFiles to fetch.
+     */
+    orderBy?: VideoFileOrderByWithRelationInput | VideoFileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for VideoFiles.
+     */
+    cursor?: VideoFileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VideoFiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VideoFiles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of VideoFiles.
+     */
+    distinct?: VideoFileScalarFieldEnum | VideoFileScalarFieldEnum[]
+  }
+
+  /**
+   * VideoFile findMany
+   */
+  export type VideoFileFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileInclude<ExtArgs> | null
+    /**
+     * Filter, which VideoFiles to fetch.
+     */
+    where?: VideoFileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VideoFiles to fetch.
+     */
+    orderBy?: VideoFileOrderByWithRelationInput | VideoFileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing VideoFiles.
+     */
+    cursor?: VideoFileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VideoFiles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VideoFiles.
+     */
+    skip?: number
+    distinct?: VideoFileScalarFieldEnum | VideoFileScalarFieldEnum[]
+  }
+
+  /**
+   * VideoFile create
+   */
+  export type VideoFileCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileInclude<ExtArgs> | null
+    /**
+     * The data needed to create a VideoFile.
+     */
+    data: XOR<VideoFileCreateInput, VideoFileUncheckedCreateInput>
+  }
+
+  /**
+   * VideoFile createMany
+   */
+  export type VideoFileCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many VideoFiles.
+     */
+    data: VideoFileCreateManyInput | VideoFileCreateManyInput[]
+  }
+
+  /**
+   * VideoFile createManyAndReturn
+   */
+  export type VideoFileCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * The data used to create many VideoFiles.
+     */
+    data: VideoFileCreateManyInput | VideoFileCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * VideoFile update
+   */
+  export type VideoFileUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileInclude<ExtArgs> | null
+    /**
+     * The data needed to update a VideoFile.
+     */
+    data: XOR<VideoFileUpdateInput, VideoFileUncheckedUpdateInput>
+    /**
+     * Choose, which VideoFile to update.
+     */
+    where: VideoFileWhereUniqueInput
+  }
+
+  /**
+   * VideoFile updateMany
+   */
+  export type VideoFileUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update VideoFiles.
+     */
+    data: XOR<VideoFileUpdateManyMutationInput, VideoFileUncheckedUpdateManyInput>
+    /**
+     * Filter which VideoFiles to update
+     */
+    where?: VideoFileWhereInput
+    /**
+     * Limit how many VideoFiles to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * VideoFile updateManyAndReturn
+   */
+  export type VideoFileUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * The data used to update VideoFiles.
+     */
+    data: XOR<VideoFileUpdateManyMutationInput, VideoFileUncheckedUpdateManyInput>
+    /**
+     * Filter which VideoFiles to update
+     */
+    where?: VideoFileWhereInput
+    /**
+     * Limit how many VideoFiles to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * VideoFile upsert
+   */
+  export type VideoFileUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileInclude<ExtArgs> | null
+    /**
+     * The filter to search for the VideoFile to update in case it exists.
+     */
+    where: VideoFileWhereUniqueInput
+    /**
+     * In case the VideoFile found by the `where` argument doesn't exist, create a new VideoFile with this data.
+     */
+    create: XOR<VideoFileCreateInput, VideoFileUncheckedCreateInput>
+    /**
+     * In case the VideoFile was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<VideoFileUpdateInput, VideoFileUncheckedUpdateInput>
+  }
+
+  /**
+   * VideoFile delete
+   */
+  export type VideoFileDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileInclude<ExtArgs> | null
+    /**
+     * Filter which VideoFile to delete.
+     */
+    where: VideoFileWhereUniqueInput
+  }
+
+  /**
+   * VideoFile deleteMany
+   */
+  export type VideoFileDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which VideoFiles to delete
+     */
+    where?: VideoFileWhereInput
+    /**
+     * Limit how many VideoFiles to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * VideoFile.utterances
+   */
+  export type VideoFile$utterancesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceInclude<ExtArgs> | null
+    where?: UtteranceWhereInput
+    orderBy?: UtteranceOrderByWithRelationInput | UtteranceOrderByWithRelationInput[]
+    cursor?: UtteranceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UtteranceScalarFieldEnum | UtteranceScalarFieldEnum[]
+  }
+
+  /**
+   * VideoFile without action
+   */
+  export type VideoFileDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VideoFile
+     */
+    select?: VideoFileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the VideoFile
+     */
+    omit?: VideoFileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: VideoFileInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Utterance
+   */
+
+  export type AggregateUtterance = {
+    _count: UtteranceCountAggregateOutputType | null
+    _avg: UtteranceAvgAggregateOutputType | null
+    _sum: UtteranceSumAggregateOutputType | null
+    _min: UtteranceMinAggregateOutputType | null
+    _max: UtteranceMaxAggregateOutputType | null
+  }
+
+  export type UtteranceAvgAggregateOutputType = {
+    startTime: number | null
+    endTime: number | null
+  }
+
+  export type UtteranceSumAggregateOutputType = {
+    startTime: number | null
+    endTime: number | null
+  }
+
+  export type UtteranceMinAggregateOutputType = {
+    id: string | null
+    videoFileId: string | null
+    startTime: number | null
+    endTime: number | null
+    text: string | null
+  }
+
+  export type UtteranceMaxAggregateOutputType = {
+    id: string | null
+    videoFileId: string | null
+    startTime: number | null
+    endTime: number | null
+    text: string | null
+  }
+
+  export type UtteranceCountAggregateOutputType = {
+    id: number
+    videoFileId: number
+    startTime: number
+    endTime: number
+    text: number
+    emotions: number
+    sentiments: number
+    _all: number
+  }
+
+
+  export type UtteranceAvgAggregateInputType = {
+    startTime?: true
+    endTime?: true
+  }
+
+  export type UtteranceSumAggregateInputType = {
+    startTime?: true
+    endTime?: true
+  }
+
+  export type UtteranceMinAggregateInputType = {
+    id?: true
+    videoFileId?: true
+    startTime?: true
+    endTime?: true
+    text?: true
+  }
+
+  export type UtteranceMaxAggregateInputType = {
+    id?: true
+    videoFileId?: true
+    startTime?: true
+    endTime?: true
+    text?: true
+  }
+
+  export type UtteranceCountAggregateInputType = {
+    id?: true
+    videoFileId?: true
+    startTime?: true
+    endTime?: true
+    text?: true
+    emotions?: true
+    sentiments?: true
+    _all?: true
+  }
+
+  export type UtteranceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Utterance to aggregate.
+     */
+    where?: UtteranceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Utterances to fetch.
+     */
+    orderBy?: UtteranceOrderByWithRelationInput | UtteranceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UtteranceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Utterances from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Utterances.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Utterances
+    **/
+    _count?: true | UtteranceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UtteranceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UtteranceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UtteranceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UtteranceMaxAggregateInputType
+  }
+
+  export type GetUtteranceAggregateType<T extends UtteranceAggregateArgs> = {
+        [P in keyof T & keyof AggregateUtterance]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUtterance[P]>
+      : GetScalarType<T[P], AggregateUtterance[P]>
+  }
+
+
+
+
+  export type UtteranceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UtteranceWhereInput
+    orderBy?: UtteranceOrderByWithAggregationInput | UtteranceOrderByWithAggregationInput[]
+    by: UtteranceScalarFieldEnum[] | UtteranceScalarFieldEnum
+    having?: UtteranceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UtteranceCountAggregateInputType | true
+    _avg?: UtteranceAvgAggregateInputType
+    _sum?: UtteranceSumAggregateInputType
+    _min?: UtteranceMinAggregateInputType
+    _max?: UtteranceMaxAggregateInputType
+  }
+
+  export type UtteranceGroupByOutputType = {
+    id: string
+    videoFileId: string
+    startTime: number
+    endTime: number
+    text: string
+    emotions: JsonValue
+    sentiments: JsonValue
+    _count: UtteranceCountAggregateOutputType | null
+    _avg: UtteranceAvgAggregateOutputType | null
+    _sum: UtteranceSumAggregateOutputType | null
+    _min: UtteranceMinAggregateOutputType | null
+    _max: UtteranceMaxAggregateOutputType | null
+  }
+
+  type GetUtteranceGroupByPayload<T extends UtteranceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UtteranceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UtteranceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UtteranceGroupByOutputType[P]>
+            : GetScalarType<T[P], UtteranceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UtteranceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    videoFileId?: boolean
+    startTime?: boolean
+    endTime?: boolean
+    text?: boolean
+    emotions?: boolean
+    sentiments?: boolean
+    videoFile?: boolean | VideoFileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["utterance"]>
+
+  export type UtteranceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    videoFileId?: boolean
+    startTime?: boolean
+    endTime?: boolean
+    text?: boolean
+    emotions?: boolean
+    sentiments?: boolean
+    videoFile?: boolean | VideoFileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["utterance"]>
+
+  export type UtteranceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    videoFileId?: boolean
+    startTime?: boolean
+    endTime?: boolean
+    text?: boolean
+    emotions?: boolean
+    sentiments?: boolean
+    videoFile?: boolean | VideoFileDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["utterance"]>
+
+  export type UtteranceSelectScalar = {
+    id?: boolean
+    videoFileId?: boolean
+    startTime?: boolean
+    endTime?: boolean
+    text?: boolean
+    emotions?: boolean
+    sentiments?: boolean
+  }
+
+  export type UtteranceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "videoFileId" | "startTime" | "endTime" | "text" | "emotions" | "sentiments", ExtArgs["result"]["utterance"]>
+  export type UtteranceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    videoFile?: boolean | VideoFileDefaultArgs<ExtArgs>
+  }
+  export type UtteranceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    videoFile?: boolean | VideoFileDefaultArgs<ExtArgs>
+  }
+  export type UtteranceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    videoFile?: boolean | VideoFileDefaultArgs<ExtArgs>
+  }
+
+  export type $UtterancePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Utterance"
+    objects: {
+      videoFile: Prisma.$VideoFilePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      videoFileId: string
+      startTime: number
+      endTime: number
+      text: string
+      emotions: Prisma.JsonValue
+      sentiments: Prisma.JsonValue
+    }, ExtArgs["result"]["utterance"]>
+    composites: {}
+  }
+
+  type UtteranceGetPayload<S extends boolean | null | undefined | UtteranceDefaultArgs> = $Result.GetResult<Prisma.$UtterancePayload, S>
+
+  type UtteranceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UtteranceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UtteranceCountAggregateInputType | true
+    }
+
+  export interface UtteranceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Utterance'], meta: { name: 'Utterance' } }
+    /**
+     * Find zero or one Utterance that matches the filter.
+     * @param {UtteranceFindUniqueArgs} args - Arguments to find a Utterance
+     * @example
+     * // Get one Utterance
+     * const utterance = await prisma.utterance.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UtteranceFindUniqueArgs>(args: SelectSubset<T, UtteranceFindUniqueArgs<ExtArgs>>): Prisma__UtteranceClient<$Result.GetResult<Prisma.$UtterancePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Utterance that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UtteranceFindUniqueOrThrowArgs} args - Arguments to find a Utterance
+     * @example
+     * // Get one Utterance
+     * const utterance = await prisma.utterance.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UtteranceFindUniqueOrThrowArgs>(args: SelectSubset<T, UtteranceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UtteranceClient<$Result.GetResult<Prisma.$UtterancePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Utterance that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UtteranceFindFirstArgs} args - Arguments to find a Utterance
+     * @example
+     * // Get one Utterance
+     * const utterance = await prisma.utterance.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UtteranceFindFirstArgs>(args?: SelectSubset<T, UtteranceFindFirstArgs<ExtArgs>>): Prisma__UtteranceClient<$Result.GetResult<Prisma.$UtterancePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Utterance that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UtteranceFindFirstOrThrowArgs} args - Arguments to find a Utterance
+     * @example
+     * // Get one Utterance
+     * const utterance = await prisma.utterance.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UtteranceFindFirstOrThrowArgs>(args?: SelectSubset<T, UtteranceFindFirstOrThrowArgs<ExtArgs>>): Prisma__UtteranceClient<$Result.GetResult<Prisma.$UtterancePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Utterances that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UtteranceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Utterances
+     * const utterances = await prisma.utterance.findMany()
+     * 
+     * // Get first 10 Utterances
+     * const utterances = await prisma.utterance.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const utteranceWithIdOnly = await prisma.utterance.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UtteranceFindManyArgs>(args?: SelectSubset<T, UtteranceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UtterancePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Utterance.
+     * @param {UtteranceCreateArgs} args - Arguments to create a Utterance.
+     * @example
+     * // Create one Utterance
+     * const Utterance = await prisma.utterance.create({
+     *   data: {
+     *     // ... data to create a Utterance
+     *   }
+     * })
+     * 
+     */
+    create<T extends UtteranceCreateArgs>(args: SelectSubset<T, UtteranceCreateArgs<ExtArgs>>): Prisma__UtteranceClient<$Result.GetResult<Prisma.$UtterancePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Utterances.
+     * @param {UtteranceCreateManyArgs} args - Arguments to create many Utterances.
+     * @example
+     * // Create many Utterances
+     * const utterance = await prisma.utterance.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UtteranceCreateManyArgs>(args?: SelectSubset<T, UtteranceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Utterances and returns the data saved in the database.
+     * @param {UtteranceCreateManyAndReturnArgs} args - Arguments to create many Utterances.
+     * @example
+     * // Create many Utterances
+     * const utterance = await prisma.utterance.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Utterances and only return the `id`
+     * const utteranceWithIdOnly = await prisma.utterance.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UtteranceCreateManyAndReturnArgs>(args?: SelectSubset<T, UtteranceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UtterancePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Utterance.
+     * @param {UtteranceDeleteArgs} args - Arguments to delete one Utterance.
+     * @example
+     * // Delete one Utterance
+     * const Utterance = await prisma.utterance.delete({
+     *   where: {
+     *     // ... filter to delete one Utterance
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UtteranceDeleteArgs>(args: SelectSubset<T, UtteranceDeleteArgs<ExtArgs>>): Prisma__UtteranceClient<$Result.GetResult<Prisma.$UtterancePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Utterance.
+     * @param {UtteranceUpdateArgs} args - Arguments to update one Utterance.
+     * @example
+     * // Update one Utterance
+     * const utterance = await prisma.utterance.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UtteranceUpdateArgs>(args: SelectSubset<T, UtteranceUpdateArgs<ExtArgs>>): Prisma__UtteranceClient<$Result.GetResult<Prisma.$UtterancePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Utterances.
+     * @param {UtteranceDeleteManyArgs} args - Arguments to filter Utterances to delete.
+     * @example
+     * // Delete a few Utterances
+     * const { count } = await prisma.utterance.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UtteranceDeleteManyArgs>(args?: SelectSubset<T, UtteranceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Utterances.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UtteranceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Utterances
+     * const utterance = await prisma.utterance.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UtteranceUpdateManyArgs>(args: SelectSubset<T, UtteranceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Utterances and returns the data updated in the database.
+     * @param {UtteranceUpdateManyAndReturnArgs} args - Arguments to update many Utterances.
+     * @example
+     * // Update many Utterances
+     * const utterance = await prisma.utterance.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Utterances and only return the `id`
+     * const utteranceWithIdOnly = await prisma.utterance.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends UtteranceUpdateManyAndReturnArgs>(args: SelectSubset<T, UtteranceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UtterancePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Utterance.
+     * @param {UtteranceUpsertArgs} args - Arguments to update or create a Utterance.
+     * @example
+     * // Update or create a Utterance
+     * const utterance = await prisma.utterance.upsert({
+     *   create: {
+     *     // ... data to create a Utterance
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Utterance we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UtteranceUpsertArgs>(args: SelectSubset<T, UtteranceUpsertArgs<ExtArgs>>): Prisma__UtteranceClient<$Result.GetResult<Prisma.$UtterancePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Utterances.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UtteranceCountArgs} args - Arguments to filter Utterances to count.
+     * @example
+     * // Count the number of Utterances
+     * const count = await prisma.utterance.count({
+     *   where: {
+     *     // ... the filter for the Utterances we want to count
+     *   }
+     * })
+    **/
+    count<T extends UtteranceCountArgs>(
+      args?: Subset<T, UtteranceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UtteranceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Utterance.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UtteranceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UtteranceAggregateArgs>(args: Subset<T, UtteranceAggregateArgs>): Prisma.PrismaPromise<GetUtteranceAggregateType<T>>
+
+    /**
+     * Group by Utterance.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UtteranceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UtteranceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UtteranceGroupByArgs['orderBy'] }
+        : { orderBy?: UtteranceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UtteranceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUtteranceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Utterance model
+   */
+  readonly fields: UtteranceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Utterance.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UtteranceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    videoFile<T extends VideoFileDefaultArgs<ExtArgs> = {}>(args?: Subset<T, VideoFileDefaultArgs<ExtArgs>>): Prisma__VideoFileClient<$Result.GetResult<Prisma.$VideoFilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Utterance model
+   */
+  interface UtteranceFieldRefs {
+    readonly id: FieldRef<"Utterance", 'String'>
+    readonly videoFileId: FieldRef<"Utterance", 'String'>
+    readonly startTime: FieldRef<"Utterance", 'Float'>
+    readonly endTime: FieldRef<"Utterance", 'Float'>
+    readonly text: FieldRef<"Utterance", 'String'>
+    readonly emotions: FieldRef<"Utterance", 'Json'>
+    readonly sentiments: FieldRef<"Utterance", 'Json'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Utterance findUnique
+   */
+  export type UtteranceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceInclude<ExtArgs> | null
+    /**
+     * Filter, which Utterance to fetch.
+     */
+    where: UtteranceWhereUniqueInput
+  }
+
+  /**
+   * Utterance findUniqueOrThrow
+   */
+  export type UtteranceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceInclude<ExtArgs> | null
+    /**
+     * Filter, which Utterance to fetch.
+     */
+    where: UtteranceWhereUniqueInput
+  }
+
+  /**
+   * Utterance findFirst
+   */
+  export type UtteranceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceInclude<ExtArgs> | null
+    /**
+     * Filter, which Utterance to fetch.
+     */
+    where?: UtteranceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Utterances to fetch.
+     */
+    orderBy?: UtteranceOrderByWithRelationInput | UtteranceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Utterances.
+     */
+    cursor?: UtteranceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Utterances from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Utterances.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Utterances.
+     */
+    distinct?: UtteranceScalarFieldEnum | UtteranceScalarFieldEnum[]
+  }
+
+  /**
+   * Utterance findFirstOrThrow
+   */
+  export type UtteranceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceInclude<ExtArgs> | null
+    /**
+     * Filter, which Utterance to fetch.
+     */
+    where?: UtteranceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Utterances to fetch.
+     */
+    orderBy?: UtteranceOrderByWithRelationInput | UtteranceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Utterances.
+     */
+    cursor?: UtteranceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Utterances from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Utterances.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Utterances.
+     */
+    distinct?: UtteranceScalarFieldEnum | UtteranceScalarFieldEnum[]
+  }
+
+  /**
+   * Utterance findMany
+   */
+  export type UtteranceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceInclude<ExtArgs> | null
+    /**
+     * Filter, which Utterances to fetch.
+     */
+    where?: UtteranceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Utterances to fetch.
+     */
+    orderBy?: UtteranceOrderByWithRelationInput | UtteranceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Utterances.
+     */
+    cursor?: UtteranceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Utterances from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Utterances.
+     */
+    skip?: number
+    distinct?: UtteranceScalarFieldEnum | UtteranceScalarFieldEnum[]
+  }
+
+  /**
+   * Utterance create
+   */
+  export type UtteranceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Utterance.
+     */
+    data: XOR<UtteranceCreateInput, UtteranceUncheckedCreateInput>
+  }
+
+  /**
+   * Utterance createMany
+   */
+  export type UtteranceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Utterances.
+     */
+    data: UtteranceCreateManyInput | UtteranceCreateManyInput[]
+  }
+
+  /**
+   * Utterance createManyAndReturn
+   */
+  export type UtteranceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * The data used to create many Utterances.
+     */
+    data: UtteranceCreateManyInput | UtteranceCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Utterance update
+   */
+  export type UtteranceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Utterance.
+     */
+    data: XOR<UtteranceUpdateInput, UtteranceUncheckedUpdateInput>
+    /**
+     * Choose, which Utterance to update.
+     */
+    where: UtteranceWhereUniqueInput
+  }
+
+  /**
+   * Utterance updateMany
+   */
+  export type UtteranceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Utterances.
+     */
+    data: XOR<UtteranceUpdateManyMutationInput, UtteranceUncheckedUpdateManyInput>
+    /**
+     * Filter which Utterances to update
+     */
+    where?: UtteranceWhereInput
+    /**
+     * Limit how many Utterances to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Utterance updateManyAndReturn
+   */
+  export type UtteranceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * The data used to update Utterances.
+     */
+    data: XOR<UtteranceUpdateManyMutationInput, UtteranceUncheckedUpdateManyInput>
+    /**
+     * Filter which Utterances to update
+     */
+    where?: UtteranceWhereInput
+    /**
+     * Limit how many Utterances to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Utterance upsert
+   */
+  export type UtteranceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Utterance to update in case it exists.
+     */
+    where: UtteranceWhereUniqueInput
+    /**
+     * In case the Utterance found by the `where` argument doesn't exist, create a new Utterance with this data.
+     */
+    create: XOR<UtteranceCreateInput, UtteranceUncheckedCreateInput>
+    /**
+     * In case the Utterance was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UtteranceUpdateInput, UtteranceUncheckedUpdateInput>
+  }
+
+  /**
+   * Utterance delete
+   */
+  export type UtteranceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceInclude<ExtArgs> | null
+    /**
+     * Filter which Utterance to delete.
+     */
+    where: UtteranceWhereUniqueInput
+  }
+
+  /**
+   * Utterance deleteMany
+   */
+  export type UtteranceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Utterances to delete
+     */
+    where?: UtteranceWhereInput
+    /**
+     * Limit how many Utterances to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Utterance without action
+   */
+  export type UtteranceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Utterance
+     */
+    select?: UtteranceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Utterance
+     */
+    omit?: UtteranceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UtteranceInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -6780,6 +10449,42 @@ export namespace Prisma {
   export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFieldEnum)[keyof typeof VerificationTokenScalarFieldEnum]
 
 
+  export const ApiQuotaScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    requestUsed: 'requestUsed',
+    maxRequests: 'maxRequests',
+    lastResetDate: 'lastResetDate',
+    secretKey: 'secretKey'
+  };
+
+  export type ApiQuotaScalarFieldEnum = (typeof ApiQuotaScalarFieldEnum)[keyof typeof ApiQuotaScalarFieldEnum]
+
+
+  export const VideoFileScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    key: 'key',
+    analyzed: 'analyzed',
+    createdAt: 'createdAt'
+  };
+
+  export type VideoFileScalarFieldEnum = (typeof VideoFileScalarFieldEnum)[keyof typeof VideoFileScalarFieldEnum]
+
+
+  export const UtteranceScalarFieldEnum: {
+    id: 'id',
+    videoFileId: 'videoFileId',
+    startTime: 'startTime',
+    endTime: 'endTime',
+    text: 'text',
+    emotions: 'emotions',
+    sentiments: 'sentiments'
+  };
+
+  export type UtteranceScalarFieldEnum = (typeof UtteranceScalarFieldEnum)[keyof typeof UtteranceScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -6788,12 +10493,36 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
   export const NullsOrder: {
     first: 'first',
     last: 'last'
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
+
+
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
   /**
@@ -6823,9 +10552,30 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
   /**
    * Deep Input Types
@@ -7050,6 +10800,8 @@ export namespace Prisma {
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
     posts?: PostListRelationFilter
+    apiQuota?: XOR<ApiQuotaNullableScalarRelationFilter, ApiQuotaWhereInput> | null
+    videoFiles?: VideoFileListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -7062,6 +10814,8 @@ export namespace Prisma {
     accounts?: AccountOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
     posts?: PostOrderByRelationAggregateInput
+    apiQuota?: ApiQuotaOrderByWithRelationInput
+    videoFiles?: VideoFileOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -7077,6 +10831,8 @@ export namespace Prisma {
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
     posts?: PostListRelationFilter
+    apiQuota?: XOR<ApiQuotaNullableScalarRelationFilter, ApiQuotaWhereInput> | null
+    videoFiles?: VideoFileListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -7144,6 +10900,193 @@ export namespace Prisma {
     identifier?: StringWithAggregatesFilter<"VerificationToken"> | string
     token?: StringWithAggregatesFilter<"VerificationToken"> | string
     expires?: DateTimeWithAggregatesFilter<"VerificationToken"> | Date | string
+  }
+
+  export type ApiQuotaWhereInput = {
+    AND?: ApiQuotaWhereInput | ApiQuotaWhereInput[]
+    OR?: ApiQuotaWhereInput[]
+    NOT?: ApiQuotaWhereInput | ApiQuotaWhereInput[]
+    id?: StringFilter<"ApiQuota"> | string
+    userId?: StringFilter<"ApiQuota"> | string
+    requestUsed?: IntFilter<"ApiQuota"> | number
+    maxRequests?: IntFilter<"ApiQuota"> | number
+    lastResetDate?: DateTimeFilter<"ApiQuota"> | Date | string
+    secretKey?: StringFilter<"ApiQuota"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type ApiQuotaOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    requestUsed?: SortOrder
+    maxRequests?: SortOrder
+    lastResetDate?: SortOrder
+    secretKey?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type ApiQuotaWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId?: string
+    secretKey?: string
+    AND?: ApiQuotaWhereInput | ApiQuotaWhereInput[]
+    OR?: ApiQuotaWhereInput[]
+    NOT?: ApiQuotaWhereInput | ApiQuotaWhereInput[]
+    requestUsed?: IntFilter<"ApiQuota"> | number
+    maxRequests?: IntFilter<"ApiQuota"> | number
+    lastResetDate?: DateTimeFilter<"ApiQuota"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "userId" | "secretKey">
+
+  export type ApiQuotaOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    requestUsed?: SortOrder
+    maxRequests?: SortOrder
+    lastResetDate?: SortOrder
+    secretKey?: SortOrder
+    _count?: ApiQuotaCountOrderByAggregateInput
+    _avg?: ApiQuotaAvgOrderByAggregateInput
+    _max?: ApiQuotaMaxOrderByAggregateInput
+    _min?: ApiQuotaMinOrderByAggregateInput
+    _sum?: ApiQuotaSumOrderByAggregateInput
+  }
+
+  export type ApiQuotaScalarWhereWithAggregatesInput = {
+    AND?: ApiQuotaScalarWhereWithAggregatesInput | ApiQuotaScalarWhereWithAggregatesInput[]
+    OR?: ApiQuotaScalarWhereWithAggregatesInput[]
+    NOT?: ApiQuotaScalarWhereWithAggregatesInput | ApiQuotaScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ApiQuota"> | string
+    userId?: StringWithAggregatesFilter<"ApiQuota"> | string
+    requestUsed?: IntWithAggregatesFilter<"ApiQuota"> | number
+    maxRequests?: IntWithAggregatesFilter<"ApiQuota"> | number
+    lastResetDate?: DateTimeWithAggregatesFilter<"ApiQuota"> | Date | string
+    secretKey?: StringWithAggregatesFilter<"ApiQuota"> | string
+  }
+
+  export type VideoFileWhereInput = {
+    AND?: VideoFileWhereInput | VideoFileWhereInput[]
+    OR?: VideoFileWhereInput[]
+    NOT?: VideoFileWhereInput | VideoFileWhereInput[]
+    id?: StringFilter<"VideoFile"> | string
+    userId?: StringFilter<"VideoFile"> | string
+    key?: StringFilter<"VideoFile"> | string
+    analyzed?: BoolFilter<"VideoFile"> | boolean
+    createdAt?: DateTimeFilter<"VideoFile"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    utterances?: UtteranceListRelationFilter
+  }
+
+  export type VideoFileOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    key?: SortOrder
+    analyzed?: SortOrder
+    createdAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    utterances?: UtteranceOrderByRelationAggregateInput
+  }
+
+  export type VideoFileWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    key?: string
+    AND?: VideoFileWhereInput | VideoFileWhereInput[]
+    OR?: VideoFileWhereInput[]
+    NOT?: VideoFileWhereInput | VideoFileWhereInput[]
+    userId?: StringFilter<"VideoFile"> | string
+    analyzed?: BoolFilter<"VideoFile"> | boolean
+    createdAt?: DateTimeFilter<"VideoFile"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    utterances?: UtteranceListRelationFilter
+  }, "id" | "key">
+
+  export type VideoFileOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    key?: SortOrder
+    analyzed?: SortOrder
+    createdAt?: SortOrder
+    _count?: VideoFileCountOrderByAggregateInput
+    _max?: VideoFileMaxOrderByAggregateInput
+    _min?: VideoFileMinOrderByAggregateInput
+  }
+
+  export type VideoFileScalarWhereWithAggregatesInput = {
+    AND?: VideoFileScalarWhereWithAggregatesInput | VideoFileScalarWhereWithAggregatesInput[]
+    OR?: VideoFileScalarWhereWithAggregatesInput[]
+    NOT?: VideoFileScalarWhereWithAggregatesInput | VideoFileScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"VideoFile"> | string
+    userId?: StringWithAggregatesFilter<"VideoFile"> | string
+    key?: StringWithAggregatesFilter<"VideoFile"> | string
+    analyzed?: BoolWithAggregatesFilter<"VideoFile"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"VideoFile"> | Date | string
+  }
+
+  export type UtteranceWhereInput = {
+    AND?: UtteranceWhereInput | UtteranceWhereInput[]
+    OR?: UtteranceWhereInput[]
+    NOT?: UtteranceWhereInput | UtteranceWhereInput[]
+    id?: StringFilter<"Utterance"> | string
+    videoFileId?: StringFilter<"Utterance"> | string
+    startTime?: FloatFilter<"Utterance"> | number
+    endTime?: FloatFilter<"Utterance"> | number
+    text?: StringFilter<"Utterance"> | string
+    emotions?: JsonFilter<"Utterance">
+    sentiments?: JsonFilter<"Utterance">
+    videoFile?: XOR<VideoFileScalarRelationFilter, VideoFileWhereInput>
+  }
+
+  export type UtteranceOrderByWithRelationInput = {
+    id?: SortOrder
+    videoFileId?: SortOrder
+    startTime?: SortOrder
+    endTime?: SortOrder
+    text?: SortOrder
+    emotions?: SortOrder
+    sentiments?: SortOrder
+    videoFile?: VideoFileOrderByWithRelationInput
+  }
+
+  export type UtteranceWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: UtteranceWhereInput | UtteranceWhereInput[]
+    OR?: UtteranceWhereInput[]
+    NOT?: UtteranceWhereInput | UtteranceWhereInput[]
+    videoFileId?: StringFilter<"Utterance"> | string
+    startTime?: FloatFilter<"Utterance"> | number
+    endTime?: FloatFilter<"Utterance"> | number
+    text?: StringFilter<"Utterance"> | string
+    emotions?: JsonFilter<"Utterance">
+    sentiments?: JsonFilter<"Utterance">
+    videoFile?: XOR<VideoFileScalarRelationFilter, VideoFileWhereInput>
+  }, "id">
+
+  export type UtteranceOrderByWithAggregationInput = {
+    id?: SortOrder
+    videoFileId?: SortOrder
+    startTime?: SortOrder
+    endTime?: SortOrder
+    text?: SortOrder
+    emotions?: SortOrder
+    sentiments?: SortOrder
+    _count?: UtteranceCountOrderByAggregateInput
+    _avg?: UtteranceAvgOrderByAggregateInput
+    _max?: UtteranceMaxOrderByAggregateInput
+    _min?: UtteranceMinOrderByAggregateInput
+    _sum?: UtteranceSumOrderByAggregateInput
+  }
+
+  export type UtteranceScalarWhereWithAggregatesInput = {
+    AND?: UtteranceScalarWhereWithAggregatesInput | UtteranceScalarWhereWithAggregatesInput[]
+    OR?: UtteranceScalarWhereWithAggregatesInput[]
+    NOT?: UtteranceScalarWhereWithAggregatesInput | UtteranceScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Utterance"> | string
+    videoFileId?: StringWithAggregatesFilter<"Utterance"> | string
+    startTime?: FloatWithAggregatesFilter<"Utterance"> | number
+    endTime?: FloatWithAggregatesFilter<"Utterance"> | number
+    text?: StringWithAggregatesFilter<"Utterance"> | string
+    emotions?: JsonWithAggregatesFilter<"Utterance">
+    sentiments?: JsonWithAggregatesFilter<"Utterance">
   }
 
   export type PostCreateInput = {
@@ -7367,6 +11310,8 @@ export namespace Prisma {
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutCreatedByInput
+    apiQuota?: ApiQuotaCreateNestedOneWithoutUserInput
+    videoFiles?: VideoFileCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -7379,6 +11324,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    apiQuota?: ApiQuotaUncheckedCreateNestedOneWithoutUserInput
+    videoFiles?: VideoFileUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -7391,6 +11338,8 @@ export namespace Prisma {
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutCreatedByNestedInput
+    apiQuota?: ApiQuotaUpdateOneWithoutUserNestedInput
+    videoFiles?: VideoFileUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -7403,6 +11352,8 @@ export namespace Prisma {
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    apiQuota?: ApiQuotaUncheckedUpdateOneWithoutUserNestedInput
+    videoFiles?: VideoFileUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -7472,6 +11423,196 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     token?: StringFieldUpdateOperationsInput | string
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ApiQuotaCreateInput = {
+    id?: string
+    requestUsed?: number
+    maxRequests?: number
+    lastResetDate?: Date | string
+    secretKey: string
+    user: UserCreateNestedOneWithoutApiQuotaInput
+  }
+
+  export type ApiQuotaUncheckedCreateInput = {
+    id?: string
+    userId: string
+    requestUsed?: number
+    maxRequests?: number
+    lastResetDate?: Date | string
+    secretKey: string
+  }
+
+  export type ApiQuotaUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    requestUsed?: IntFieldUpdateOperationsInput | number
+    maxRequests?: IntFieldUpdateOperationsInput | number
+    lastResetDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    secretKey?: StringFieldUpdateOperationsInput | string
+    user?: UserUpdateOneRequiredWithoutApiQuotaNestedInput
+  }
+
+  export type ApiQuotaUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    requestUsed?: IntFieldUpdateOperationsInput | number
+    maxRequests?: IntFieldUpdateOperationsInput | number
+    lastResetDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    secretKey?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ApiQuotaCreateManyInput = {
+    id?: string
+    userId: string
+    requestUsed?: number
+    maxRequests?: number
+    lastResetDate?: Date | string
+    secretKey: string
+  }
+
+  export type ApiQuotaUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    requestUsed?: IntFieldUpdateOperationsInput | number
+    maxRequests?: IntFieldUpdateOperationsInput | number
+    lastResetDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    secretKey?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ApiQuotaUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    requestUsed?: IntFieldUpdateOperationsInput | number
+    maxRequests?: IntFieldUpdateOperationsInput | number
+    lastResetDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    secretKey?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VideoFileCreateInput = {
+    id?: string
+    key: string
+    analyzed?: boolean
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutVideoFilesInput
+    utterances?: UtteranceCreateNestedManyWithoutVideoFileInput
+  }
+
+  export type VideoFileUncheckedCreateInput = {
+    id?: string
+    userId: string
+    key: string
+    analyzed?: boolean
+    createdAt?: Date | string
+    utterances?: UtteranceUncheckedCreateNestedManyWithoutVideoFileInput
+  }
+
+  export type VideoFileUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    analyzed?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutVideoFilesNestedInput
+    utterances?: UtteranceUpdateManyWithoutVideoFileNestedInput
+  }
+
+  export type VideoFileUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    analyzed?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    utterances?: UtteranceUncheckedUpdateManyWithoutVideoFileNestedInput
+  }
+
+  export type VideoFileCreateManyInput = {
+    id?: string
+    userId: string
+    key: string
+    analyzed?: boolean
+    createdAt?: Date | string
+  }
+
+  export type VideoFileUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    analyzed?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VideoFileUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    analyzed?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UtteranceCreateInput = {
+    id?: string
+    startTime: number
+    endTime: number
+    text: string
+    emotions: JsonNullValueInput | InputJsonValue
+    sentiments: JsonNullValueInput | InputJsonValue
+    videoFile: VideoFileCreateNestedOneWithoutUtterancesInput
+  }
+
+  export type UtteranceUncheckedCreateInput = {
+    id?: string
+    videoFileId: string
+    startTime: number
+    endTime: number
+    text: string
+    emotions: JsonNullValueInput | InputJsonValue
+    sentiments: JsonNullValueInput | InputJsonValue
+  }
+
+  export type UtteranceUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: FloatFieldUpdateOperationsInput | number
+    endTime?: FloatFieldUpdateOperationsInput | number
+    text?: StringFieldUpdateOperationsInput | string
+    emotions?: JsonNullValueInput | InputJsonValue
+    sentiments?: JsonNullValueInput | InputJsonValue
+    videoFile?: VideoFileUpdateOneRequiredWithoutUtterancesNestedInput
+  }
+
+  export type UtteranceUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    videoFileId?: StringFieldUpdateOperationsInput | string
+    startTime?: FloatFieldUpdateOperationsInput | number
+    endTime?: FloatFieldUpdateOperationsInput | number
+    text?: StringFieldUpdateOperationsInput | string
+    emotions?: JsonNullValueInput | InputJsonValue
+    sentiments?: JsonNullValueInput | InputJsonValue
+  }
+
+  export type UtteranceCreateManyInput = {
+    id?: string
+    videoFileId: string
+    startTime: number
+    endTime: number
+    text: string
+    emotions: JsonNullValueInput | InputJsonValue
+    sentiments: JsonNullValueInput | InputJsonValue
+  }
+
+  export type UtteranceUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: FloatFieldUpdateOperationsInput | number
+    endTime?: FloatFieldUpdateOperationsInput | number
+    text?: StringFieldUpdateOperationsInput | string
+    emotions?: JsonNullValueInput | InputJsonValue
+    sentiments?: JsonNullValueInput | InputJsonValue
+  }
+
+  export type UtteranceUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    videoFileId?: StringFieldUpdateOperationsInput | string
+    startTime?: FloatFieldUpdateOperationsInput | number
+    endTime?: FloatFieldUpdateOperationsInput | number
+    text?: StringFieldUpdateOperationsInput | string
+    emotions?: JsonNullValueInput | InputJsonValue
+    sentiments?: JsonNullValueInput | InputJsonValue
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -7770,6 +11911,17 @@ export namespace Prisma {
     none?: PostWhereInput
   }
 
+  export type ApiQuotaNullableScalarRelationFilter = {
+    is?: ApiQuotaWhereInput | null
+    isNot?: ApiQuotaWhereInput | null
+  }
+
+  export type VideoFileListRelationFilter = {
+    every?: VideoFileWhereInput
+    some?: VideoFileWhereInput
+    none?: VideoFileWhereInput
+  }
+
   export type AccountOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -7779,6 +11931,10 @@ export namespace Prisma {
   }
 
   export type PostOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type VideoFileOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -7844,6 +12000,197 @@ export namespace Prisma {
     identifier?: SortOrder
     token?: SortOrder
     expires?: SortOrder
+  }
+
+  export type ApiQuotaCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    requestUsed?: SortOrder
+    maxRequests?: SortOrder
+    lastResetDate?: SortOrder
+    secretKey?: SortOrder
+  }
+
+  export type ApiQuotaAvgOrderByAggregateInput = {
+    requestUsed?: SortOrder
+    maxRequests?: SortOrder
+  }
+
+  export type ApiQuotaMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    requestUsed?: SortOrder
+    maxRequests?: SortOrder
+    lastResetDate?: SortOrder
+    secretKey?: SortOrder
+  }
+
+  export type ApiQuotaMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    requestUsed?: SortOrder
+    maxRequests?: SortOrder
+    lastResetDate?: SortOrder
+    secretKey?: SortOrder
+  }
+
+  export type ApiQuotaSumOrderByAggregateInput = {
+    requestUsed?: SortOrder
+    maxRequests?: SortOrder
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type UtteranceListRelationFilter = {
+    every?: UtteranceWhereInput
+    some?: UtteranceWhereInput
+    none?: UtteranceWhereInput
+  }
+
+  export type UtteranceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type VideoFileCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    key?: SortOrder
+    analyzed?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type VideoFileMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    key?: SortOrder
+    analyzed?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type VideoFileMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    key?: SortOrder
+    analyzed?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+  export type JsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type VideoFileScalarRelationFilter = {
+    is?: VideoFileWhereInput
+    isNot?: VideoFileWhereInput
+  }
+
+  export type UtteranceCountOrderByAggregateInput = {
+    id?: SortOrder
+    videoFileId?: SortOrder
+    startTime?: SortOrder
+    endTime?: SortOrder
+    text?: SortOrder
+    emotions?: SortOrder
+    sentiments?: SortOrder
+  }
+
+  export type UtteranceAvgOrderByAggregateInput = {
+    startTime?: SortOrder
+    endTime?: SortOrder
+  }
+
+  export type UtteranceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    videoFileId?: SortOrder
+    startTime?: SortOrder
+    endTime?: SortOrder
+    text?: SortOrder
+  }
+
+  export type UtteranceMinOrderByAggregateInput = {
+    id?: SortOrder
+    videoFileId?: SortOrder
+    startTime?: SortOrder
+    endTime?: SortOrder
+    text?: SortOrder
+  }
+
+  export type UtteranceSumOrderByAggregateInput = {
+    startTime?: SortOrder
+    endTime?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
   }
 
   export type UserCreateNestedOneWithoutPostsInput = {
@@ -7937,6 +12284,19 @@ export namespace Prisma {
     connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
   }
 
+  export type ApiQuotaCreateNestedOneWithoutUserInput = {
+    create?: XOR<ApiQuotaCreateWithoutUserInput, ApiQuotaUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ApiQuotaCreateOrConnectWithoutUserInput
+    connect?: ApiQuotaWhereUniqueInput
+  }
+
+  export type VideoFileCreateNestedManyWithoutUserInput = {
+    create?: XOR<VideoFileCreateWithoutUserInput, VideoFileUncheckedCreateWithoutUserInput> | VideoFileCreateWithoutUserInput[] | VideoFileUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: VideoFileCreateOrConnectWithoutUserInput | VideoFileCreateOrConnectWithoutUserInput[]
+    createMany?: VideoFileCreateManyUserInputEnvelope
+    connect?: VideoFileWhereUniqueInput | VideoFileWhereUniqueInput[]
+  }
+
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -7956,6 +12316,19 @@ export namespace Prisma {
     connectOrCreate?: PostCreateOrConnectWithoutCreatedByInput | PostCreateOrConnectWithoutCreatedByInput[]
     createMany?: PostCreateManyCreatedByInputEnvelope
     connect?: PostWhereUniqueInput | PostWhereUniqueInput[]
+  }
+
+  export type ApiQuotaUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<ApiQuotaCreateWithoutUserInput, ApiQuotaUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ApiQuotaCreateOrConnectWithoutUserInput
+    connect?: ApiQuotaWhereUniqueInput
+  }
+
+  export type VideoFileUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<VideoFileCreateWithoutUserInput, VideoFileUncheckedCreateWithoutUserInput> | VideoFileCreateWithoutUserInput[] | VideoFileUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: VideoFileCreateOrConnectWithoutUserInput | VideoFileCreateOrConnectWithoutUserInput[]
+    createMany?: VideoFileCreateManyUserInputEnvelope
+    connect?: VideoFileWhereUniqueInput | VideoFileWhereUniqueInput[]
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -8004,6 +12377,30 @@ export namespace Prisma {
     deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
   }
 
+  export type ApiQuotaUpdateOneWithoutUserNestedInput = {
+    create?: XOR<ApiQuotaCreateWithoutUserInput, ApiQuotaUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ApiQuotaCreateOrConnectWithoutUserInput
+    upsert?: ApiQuotaUpsertWithoutUserInput
+    disconnect?: ApiQuotaWhereInput | boolean
+    delete?: ApiQuotaWhereInput | boolean
+    connect?: ApiQuotaWhereUniqueInput
+    update?: XOR<XOR<ApiQuotaUpdateToOneWithWhereWithoutUserInput, ApiQuotaUpdateWithoutUserInput>, ApiQuotaUncheckedUpdateWithoutUserInput>
+  }
+
+  export type VideoFileUpdateManyWithoutUserNestedInput = {
+    create?: XOR<VideoFileCreateWithoutUserInput, VideoFileUncheckedCreateWithoutUserInput> | VideoFileCreateWithoutUserInput[] | VideoFileUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: VideoFileCreateOrConnectWithoutUserInput | VideoFileCreateOrConnectWithoutUserInput[]
+    upsert?: VideoFileUpsertWithWhereUniqueWithoutUserInput | VideoFileUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: VideoFileCreateManyUserInputEnvelope
+    set?: VideoFileWhereUniqueInput | VideoFileWhereUniqueInput[]
+    disconnect?: VideoFileWhereUniqueInput | VideoFileWhereUniqueInput[]
+    delete?: VideoFileWhereUniqueInput | VideoFileWhereUniqueInput[]
+    connect?: VideoFileWhereUniqueInput | VideoFileWhereUniqueInput[]
+    update?: VideoFileUpdateWithWhereUniqueWithoutUserInput | VideoFileUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: VideoFileUpdateManyWithWhereWithoutUserInput | VideoFileUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: VideoFileScalarWhereInput | VideoFileScalarWhereInput[]
+  }
+
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -8044,6 +12441,126 @@ export namespace Prisma {
     update?: PostUpdateWithWhereUniqueWithoutCreatedByInput | PostUpdateWithWhereUniqueWithoutCreatedByInput[]
     updateMany?: PostUpdateManyWithWhereWithoutCreatedByInput | PostUpdateManyWithWhereWithoutCreatedByInput[]
     deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
+  }
+
+  export type ApiQuotaUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: XOR<ApiQuotaCreateWithoutUserInput, ApiQuotaUncheckedCreateWithoutUserInput>
+    connectOrCreate?: ApiQuotaCreateOrConnectWithoutUserInput
+    upsert?: ApiQuotaUpsertWithoutUserInput
+    disconnect?: ApiQuotaWhereInput | boolean
+    delete?: ApiQuotaWhereInput | boolean
+    connect?: ApiQuotaWhereUniqueInput
+    update?: XOR<XOR<ApiQuotaUpdateToOneWithWhereWithoutUserInput, ApiQuotaUpdateWithoutUserInput>, ApiQuotaUncheckedUpdateWithoutUserInput>
+  }
+
+  export type VideoFileUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<VideoFileCreateWithoutUserInput, VideoFileUncheckedCreateWithoutUserInput> | VideoFileCreateWithoutUserInput[] | VideoFileUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: VideoFileCreateOrConnectWithoutUserInput | VideoFileCreateOrConnectWithoutUserInput[]
+    upsert?: VideoFileUpsertWithWhereUniqueWithoutUserInput | VideoFileUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: VideoFileCreateManyUserInputEnvelope
+    set?: VideoFileWhereUniqueInput | VideoFileWhereUniqueInput[]
+    disconnect?: VideoFileWhereUniqueInput | VideoFileWhereUniqueInput[]
+    delete?: VideoFileWhereUniqueInput | VideoFileWhereUniqueInput[]
+    connect?: VideoFileWhereUniqueInput | VideoFileWhereUniqueInput[]
+    update?: VideoFileUpdateWithWhereUniqueWithoutUserInput | VideoFileUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: VideoFileUpdateManyWithWhereWithoutUserInput | VideoFileUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: VideoFileScalarWhereInput | VideoFileScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutApiQuotaInput = {
+    create?: XOR<UserCreateWithoutApiQuotaInput, UserUncheckedCreateWithoutApiQuotaInput>
+    connectOrCreate?: UserCreateOrConnectWithoutApiQuotaInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutApiQuotaNestedInput = {
+    create?: XOR<UserCreateWithoutApiQuotaInput, UserUncheckedCreateWithoutApiQuotaInput>
+    connectOrCreate?: UserCreateOrConnectWithoutApiQuotaInput
+    upsert?: UserUpsertWithoutApiQuotaInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutApiQuotaInput, UserUpdateWithoutApiQuotaInput>, UserUncheckedUpdateWithoutApiQuotaInput>
+  }
+
+  export type UserCreateNestedOneWithoutVideoFilesInput = {
+    create?: XOR<UserCreateWithoutVideoFilesInput, UserUncheckedCreateWithoutVideoFilesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutVideoFilesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UtteranceCreateNestedManyWithoutVideoFileInput = {
+    create?: XOR<UtteranceCreateWithoutVideoFileInput, UtteranceUncheckedCreateWithoutVideoFileInput> | UtteranceCreateWithoutVideoFileInput[] | UtteranceUncheckedCreateWithoutVideoFileInput[]
+    connectOrCreate?: UtteranceCreateOrConnectWithoutVideoFileInput | UtteranceCreateOrConnectWithoutVideoFileInput[]
+    createMany?: UtteranceCreateManyVideoFileInputEnvelope
+    connect?: UtteranceWhereUniqueInput | UtteranceWhereUniqueInput[]
+  }
+
+  export type UtteranceUncheckedCreateNestedManyWithoutVideoFileInput = {
+    create?: XOR<UtteranceCreateWithoutVideoFileInput, UtteranceUncheckedCreateWithoutVideoFileInput> | UtteranceCreateWithoutVideoFileInput[] | UtteranceUncheckedCreateWithoutVideoFileInput[]
+    connectOrCreate?: UtteranceCreateOrConnectWithoutVideoFileInput | UtteranceCreateOrConnectWithoutVideoFileInput[]
+    createMany?: UtteranceCreateManyVideoFileInputEnvelope
+    connect?: UtteranceWhereUniqueInput | UtteranceWhereUniqueInput[]
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type UserUpdateOneRequiredWithoutVideoFilesNestedInput = {
+    create?: XOR<UserCreateWithoutVideoFilesInput, UserUncheckedCreateWithoutVideoFilesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutVideoFilesInput
+    upsert?: UserUpsertWithoutVideoFilesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutVideoFilesInput, UserUpdateWithoutVideoFilesInput>, UserUncheckedUpdateWithoutVideoFilesInput>
+  }
+
+  export type UtteranceUpdateManyWithoutVideoFileNestedInput = {
+    create?: XOR<UtteranceCreateWithoutVideoFileInput, UtteranceUncheckedCreateWithoutVideoFileInput> | UtteranceCreateWithoutVideoFileInput[] | UtteranceUncheckedCreateWithoutVideoFileInput[]
+    connectOrCreate?: UtteranceCreateOrConnectWithoutVideoFileInput | UtteranceCreateOrConnectWithoutVideoFileInput[]
+    upsert?: UtteranceUpsertWithWhereUniqueWithoutVideoFileInput | UtteranceUpsertWithWhereUniqueWithoutVideoFileInput[]
+    createMany?: UtteranceCreateManyVideoFileInputEnvelope
+    set?: UtteranceWhereUniqueInput | UtteranceWhereUniqueInput[]
+    disconnect?: UtteranceWhereUniqueInput | UtteranceWhereUniqueInput[]
+    delete?: UtteranceWhereUniqueInput | UtteranceWhereUniqueInput[]
+    connect?: UtteranceWhereUniqueInput | UtteranceWhereUniqueInput[]
+    update?: UtteranceUpdateWithWhereUniqueWithoutVideoFileInput | UtteranceUpdateWithWhereUniqueWithoutVideoFileInput[]
+    updateMany?: UtteranceUpdateManyWithWhereWithoutVideoFileInput | UtteranceUpdateManyWithWhereWithoutVideoFileInput[]
+    deleteMany?: UtteranceScalarWhereInput | UtteranceScalarWhereInput[]
+  }
+
+  export type UtteranceUncheckedUpdateManyWithoutVideoFileNestedInput = {
+    create?: XOR<UtteranceCreateWithoutVideoFileInput, UtteranceUncheckedCreateWithoutVideoFileInput> | UtteranceCreateWithoutVideoFileInput[] | UtteranceUncheckedCreateWithoutVideoFileInput[]
+    connectOrCreate?: UtteranceCreateOrConnectWithoutVideoFileInput | UtteranceCreateOrConnectWithoutVideoFileInput[]
+    upsert?: UtteranceUpsertWithWhereUniqueWithoutVideoFileInput | UtteranceUpsertWithWhereUniqueWithoutVideoFileInput[]
+    createMany?: UtteranceCreateManyVideoFileInputEnvelope
+    set?: UtteranceWhereUniqueInput | UtteranceWhereUniqueInput[]
+    disconnect?: UtteranceWhereUniqueInput | UtteranceWhereUniqueInput[]
+    delete?: UtteranceWhereUniqueInput | UtteranceWhereUniqueInput[]
+    connect?: UtteranceWhereUniqueInput | UtteranceWhereUniqueInput[]
+    update?: UtteranceUpdateWithWhereUniqueWithoutVideoFileInput | UtteranceUpdateWithWhereUniqueWithoutVideoFileInput[]
+    updateMany?: UtteranceUpdateManyWithWhereWithoutVideoFileInput | UtteranceUpdateManyWithWhereWithoutVideoFileInput[]
+    deleteMany?: UtteranceScalarWhereInput | UtteranceScalarWhereInput[]
+  }
+
+  export type VideoFileCreateNestedOneWithoutUtterancesInput = {
+    create?: XOR<VideoFileCreateWithoutUtterancesInput, VideoFileUncheckedCreateWithoutUtterancesInput>
+    connectOrCreate?: VideoFileCreateOrConnectWithoutUtterancesInput
+    connect?: VideoFileWhereUniqueInput
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type VideoFileUpdateOneRequiredWithoutUtterancesNestedInput = {
+    create?: XOR<VideoFileCreateWithoutUtterancesInput, VideoFileUncheckedCreateWithoutUtterancesInput>
+    connectOrCreate?: VideoFileCreateOrConnectWithoutUtterancesInput
+    upsert?: VideoFileUpsertWithoutUtterancesInput
+    connect?: VideoFileWhereUniqueInput
+    update?: XOR<XOR<VideoFileUpdateToOneWithWhereWithoutUtterancesInput, VideoFileUpdateWithoutUtterancesInput>, VideoFileUncheckedUpdateWithoutUtterancesInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -8234,6 +12751,53 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+  export type NestedJsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
   export type UserCreateWithoutPostsInput = {
     id?: string
     name?: string | null
@@ -8243,6 +12807,8 @@ export namespace Prisma {
     password: string
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
+    apiQuota?: ApiQuotaCreateNestedOneWithoutUserInput
+    videoFiles?: VideoFileCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutPostsInput = {
@@ -8254,6 +12820,8 @@ export namespace Prisma {
     password: string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    apiQuota?: ApiQuotaUncheckedCreateNestedOneWithoutUserInput
+    videoFiles?: VideoFileUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutPostsInput = {
@@ -8281,6 +12849,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
+    apiQuota?: ApiQuotaUpdateOneWithoutUserNestedInput
+    videoFiles?: VideoFileUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPostsInput = {
@@ -8292,6 +12862,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    apiQuota?: ApiQuotaUncheckedUpdateOneWithoutUserNestedInput
+    videoFiles?: VideoFileUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -8303,6 +12875,8 @@ export namespace Prisma {
     password: string
     sessions?: SessionCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutCreatedByInput
+    apiQuota?: ApiQuotaCreateNestedOneWithoutUserInput
+    videoFiles?: VideoFileCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -8314,6 +12888,8 @@ export namespace Prisma {
     password: string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    apiQuota?: ApiQuotaUncheckedCreateNestedOneWithoutUserInput
+    videoFiles?: VideoFileUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -8341,6 +12917,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutCreatedByNestedInput
+    apiQuota?: ApiQuotaUpdateOneWithoutUserNestedInput
+    videoFiles?: VideoFileUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -8352,6 +12930,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    apiQuota?: ApiQuotaUncheckedUpdateOneWithoutUserNestedInput
+    videoFiles?: VideoFileUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -8363,6 +12943,8 @@ export namespace Prisma {
     password: string
     accounts?: AccountCreateNestedManyWithoutUserInput
     posts?: PostCreateNestedManyWithoutCreatedByInput
+    apiQuota?: ApiQuotaCreateNestedOneWithoutUserInput
+    videoFiles?: VideoFileCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -8374,6 +12956,8 @@ export namespace Prisma {
     password: string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    apiQuota?: ApiQuotaUncheckedCreateNestedOneWithoutUserInput
+    videoFiles?: VideoFileUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -8401,6 +12985,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     posts?: PostUpdateManyWithoutCreatedByNestedInput
+    apiQuota?: ApiQuotaUpdateOneWithoutUserNestedInput
+    videoFiles?: VideoFileUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -8412,6 +12998,8 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    apiQuota?: ApiQuotaUncheckedUpdateOneWithoutUserNestedInput
+    videoFiles?: VideoFileUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type AccountCreateWithoutUserInput = {
@@ -8494,6 +13082,52 @@ export namespace Prisma {
 
   export type PostCreateManyCreatedByInputEnvelope = {
     data: PostCreateManyCreatedByInput | PostCreateManyCreatedByInput[]
+  }
+
+  export type ApiQuotaCreateWithoutUserInput = {
+    id?: string
+    requestUsed?: number
+    maxRequests?: number
+    lastResetDate?: Date | string
+    secretKey: string
+  }
+
+  export type ApiQuotaUncheckedCreateWithoutUserInput = {
+    id?: string
+    requestUsed?: number
+    maxRequests?: number
+    lastResetDate?: Date | string
+    secretKey: string
+  }
+
+  export type ApiQuotaCreateOrConnectWithoutUserInput = {
+    where: ApiQuotaWhereUniqueInput
+    create: XOR<ApiQuotaCreateWithoutUserInput, ApiQuotaUncheckedCreateWithoutUserInput>
+  }
+
+  export type VideoFileCreateWithoutUserInput = {
+    id?: string
+    key: string
+    analyzed?: boolean
+    createdAt?: Date | string
+    utterances?: UtteranceCreateNestedManyWithoutVideoFileInput
+  }
+
+  export type VideoFileUncheckedCreateWithoutUserInput = {
+    id?: string
+    key: string
+    analyzed?: boolean
+    createdAt?: Date | string
+    utterances?: UtteranceUncheckedCreateNestedManyWithoutVideoFileInput
+  }
+
+  export type VideoFileCreateOrConnectWithoutUserInput = {
+    where: VideoFileWhereUniqueInput
+    create: XOR<VideoFileCreateWithoutUserInput, VideoFileUncheckedCreateWithoutUserInput>
+  }
+
+  export type VideoFileCreateManyUserInputEnvelope = {
+    data: VideoFileCreateManyUserInput | VideoFileCreateManyUserInput[]
   }
 
   export type AccountUpsertWithWhereUniqueWithoutUserInput = {
@@ -8584,6 +13218,300 @@ export namespace Prisma {
     createdById?: StringFilter<"Post"> | string
   }
 
+  export type ApiQuotaUpsertWithoutUserInput = {
+    update: XOR<ApiQuotaUpdateWithoutUserInput, ApiQuotaUncheckedUpdateWithoutUserInput>
+    create: XOR<ApiQuotaCreateWithoutUserInput, ApiQuotaUncheckedCreateWithoutUserInput>
+    where?: ApiQuotaWhereInput
+  }
+
+  export type ApiQuotaUpdateToOneWithWhereWithoutUserInput = {
+    where?: ApiQuotaWhereInput
+    data: XOR<ApiQuotaUpdateWithoutUserInput, ApiQuotaUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ApiQuotaUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    requestUsed?: IntFieldUpdateOperationsInput | number
+    maxRequests?: IntFieldUpdateOperationsInput | number
+    lastResetDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    secretKey?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ApiQuotaUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    requestUsed?: IntFieldUpdateOperationsInput | number
+    maxRequests?: IntFieldUpdateOperationsInput | number
+    lastResetDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    secretKey?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VideoFileUpsertWithWhereUniqueWithoutUserInput = {
+    where: VideoFileWhereUniqueInput
+    update: XOR<VideoFileUpdateWithoutUserInput, VideoFileUncheckedUpdateWithoutUserInput>
+    create: XOR<VideoFileCreateWithoutUserInput, VideoFileUncheckedCreateWithoutUserInput>
+  }
+
+  export type VideoFileUpdateWithWhereUniqueWithoutUserInput = {
+    where: VideoFileWhereUniqueInput
+    data: XOR<VideoFileUpdateWithoutUserInput, VideoFileUncheckedUpdateWithoutUserInput>
+  }
+
+  export type VideoFileUpdateManyWithWhereWithoutUserInput = {
+    where: VideoFileScalarWhereInput
+    data: XOR<VideoFileUpdateManyMutationInput, VideoFileUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type VideoFileScalarWhereInput = {
+    AND?: VideoFileScalarWhereInput | VideoFileScalarWhereInput[]
+    OR?: VideoFileScalarWhereInput[]
+    NOT?: VideoFileScalarWhereInput | VideoFileScalarWhereInput[]
+    id?: StringFilter<"VideoFile"> | string
+    userId?: StringFilter<"VideoFile"> | string
+    key?: StringFilter<"VideoFile"> | string
+    analyzed?: BoolFilter<"VideoFile"> | boolean
+    createdAt?: DateTimeFilter<"VideoFile"> | Date | string
+  }
+
+  export type UserCreateWithoutApiQuotaInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    password: string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    posts?: PostCreateNestedManyWithoutCreatedByInput
+    videoFiles?: VideoFileCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutApiQuotaInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    password: string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    videoFiles?: VideoFileUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutApiQuotaInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutApiQuotaInput, UserUncheckedCreateWithoutApiQuotaInput>
+  }
+
+  export type UserUpsertWithoutApiQuotaInput = {
+    update: XOR<UserUpdateWithoutApiQuotaInput, UserUncheckedUpdateWithoutApiQuotaInput>
+    create: XOR<UserCreateWithoutApiQuotaInput, UserUncheckedCreateWithoutApiQuotaInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutApiQuotaInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutApiQuotaInput, UserUncheckedUpdateWithoutApiQuotaInput>
+  }
+
+  export type UserUpdateWithoutApiQuotaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    posts?: PostUpdateManyWithoutCreatedByNestedInput
+    videoFiles?: VideoFileUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutApiQuotaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    videoFiles?: VideoFileUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutVideoFilesInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    password: string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    posts?: PostCreateNestedManyWithoutCreatedByInput
+    apiQuota?: ApiQuotaCreateNestedOneWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutVideoFilesInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    image?: string | null
+    password: string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    posts?: PostUncheckedCreateNestedManyWithoutCreatedByInput
+    apiQuota?: ApiQuotaUncheckedCreateNestedOneWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutVideoFilesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutVideoFilesInput, UserUncheckedCreateWithoutVideoFilesInput>
+  }
+
+  export type UtteranceCreateWithoutVideoFileInput = {
+    id?: string
+    startTime: number
+    endTime: number
+    text: string
+    emotions: JsonNullValueInput | InputJsonValue
+    sentiments: JsonNullValueInput | InputJsonValue
+  }
+
+  export type UtteranceUncheckedCreateWithoutVideoFileInput = {
+    id?: string
+    startTime: number
+    endTime: number
+    text: string
+    emotions: JsonNullValueInput | InputJsonValue
+    sentiments: JsonNullValueInput | InputJsonValue
+  }
+
+  export type UtteranceCreateOrConnectWithoutVideoFileInput = {
+    where: UtteranceWhereUniqueInput
+    create: XOR<UtteranceCreateWithoutVideoFileInput, UtteranceUncheckedCreateWithoutVideoFileInput>
+  }
+
+  export type UtteranceCreateManyVideoFileInputEnvelope = {
+    data: UtteranceCreateManyVideoFileInput | UtteranceCreateManyVideoFileInput[]
+  }
+
+  export type UserUpsertWithoutVideoFilesInput = {
+    update: XOR<UserUpdateWithoutVideoFilesInput, UserUncheckedUpdateWithoutVideoFilesInput>
+    create: XOR<UserCreateWithoutVideoFilesInput, UserUncheckedCreateWithoutVideoFilesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutVideoFilesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutVideoFilesInput, UserUncheckedUpdateWithoutVideoFilesInput>
+  }
+
+  export type UserUpdateWithoutVideoFilesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    posts?: PostUpdateManyWithoutCreatedByNestedInput
+    apiQuota?: ApiQuotaUpdateOneWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutVideoFilesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    posts?: PostUncheckedUpdateManyWithoutCreatedByNestedInput
+    apiQuota?: ApiQuotaUncheckedUpdateOneWithoutUserNestedInput
+  }
+
+  export type UtteranceUpsertWithWhereUniqueWithoutVideoFileInput = {
+    where: UtteranceWhereUniqueInput
+    update: XOR<UtteranceUpdateWithoutVideoFileInput, UtteranceUncheckedUpdateWithoutVideoFileInput>
+    create: XOR<UtteranceCreateWithoutVideoFileInput, UtteranceUncheckedCreateWithoutVideoFileInput>
+  }
+
+  export type UtteranceUpdateWithWhereUniqueWithoutVideoFileInput = {
+    where: UtteranceWhereUniqueInput
+    data: XOR<UtteranceUpdateWithoutVideoFileInput, UtteranceUncheckedUpdateWithoutVideoFileInput>
+  }
+
+  export type UtteranceUpdateManyWithWhereWithoutVideoFileInput = {
+    where: UtteranceScalarWhereInput
+    data: XOR<UtteranceUpdateManyMutationInput, UtteranceUncheckedUpdateManyWithoutVideoFileInput>
+  }
+
+  export type UtteranceScalarWhereInput = {
+    AND?: UtteranceScalarWhereInput | UtteranceScalarWhereInput[]
+    OR?: UtteranceScalarWhereInput[]
+    NOT?: UtteranceScalarWhereInput | UtteranceScalarWhereInput[]
+    id?: StringFilter<"Utterance"> | string
+    videoFileId?: StringFilter<"Utterance"> | string
+    startTime?: FloatFilter<"Utterance"> | number
+    endTime?: FloatFilter<"Utterance"> | number
+    text?: StringFilter<"Utterance"> | string
+    emotions?: JsonFilter<"Utterance">
+    sentiments?: JsonFilter<"Utterance">
+  }
+
+  export type VideoFileCreateWithoutUtterancesInput = {
+    id?: string
+    key: string
+    analyzed?: boolean
+    createdAt?: Date | string
+    user: UserCreateNestedOneWithoutVideoFilesInput
+  }
+
+  export type VideoFileUncheckedCreateWithoutUtterancesInput = {
+    id?: string
+    userId: string
+    key: string
+    analyzed?: boolean
+    createdAt?: Date | string
+  }
+
+  export type VideoFileCreateOrConnectWithoutUtterancesInput = {
+    where: VideoFileWhereUniqueInput
+    create: XOR<VideoFileCreateWithoutUtterancesInput, VideoFileUncheckedCreateWithoutUtterancesInput>
+  }
+
+  export type VideoFileUpsertWithoutUtterancesInput = {
+    update: XOR<VideoFileUpdateWithoutUtterancesInput, VideoFileUncheckedUpdateWithoutUtterancesInput>
+    create: XOR<VideoFileCreateWithoutUtterancesInput, VideoFileUncheckedCreateWithoutUtterancesInput>
+    where?: VideoFileWhereInput
+  }
+
+  export type VideoFileUpdateToOneWithWhereWithoutUtterancesInput = {
+    where?: VideoFileWhereInput
+    data: XOR<VideoFileUpdateWithoutUtterancesInput, VideoFileUncheckedUpdateWithoutUtterancesInput>
+  }
+
+  export type VideoFileUpdateWithoutUtterancesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    analyzed?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutVideoFilesNestedInput
+  }
+
+  export type VideoFileUncheckedUpdateWithoutUtterancesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    analyzed?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type AccountCreateManyUserInput = {
     id?: string
     type: string
@@ -8610,6 +13538,13 @@ export namespace Prisma {
     name: string
     createdAt?: Date | string
     updatedAt?: Date | string
+  }
+
+  export type VideoFileCreateManyUserInput = {
+    id?: string
+    key: string
+    analyzed?: boolean
+    createdAt?: Date | string
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -8693,6 +13628,65 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type VideoFileUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    analyzed?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    utterances?: UtteranceUpdateManyWithoutVideoFileNestedInput
+  }
+
+  export type VideoFileUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    analyzed?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    utterances?: UtteranceUncheckedUpdateManyWithoutVideoFileNestedInput
+  }
+
+  export type VideoFileUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    analyzed?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UtteranceCreateManyVideoFileInput = {
+    id?: string
+    startTime: number
+    endTime: number
+    text: string
+    emotions: JsonNullValueInput | InputJsonValue
+    sentiments: JsonNullValueInput | InputJsonValue
+  }
+
+  export type UtteranceUpdateWithoutVideoFileInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: FloatFieldUpdateOperationsInput | number
+    endTime?: FloatFieldUpdateOperationsInput | number
+    text?: StringFieldUpdateOperationsInput | string
+    emotions?: JsonNullValueInput | InputJsonValue
+    sentiments?: JsonNullValueInput | InputJsonValue
+  }
+
+  export type UtteranceUncheckedUpdateWithoutVideoFileInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: FloatFieldUpdateOperationsInput | number
+    endTime?: FloatFieldUpdateOperationsInput | number
+    text?: StringFieldUpdateOperationsInput | string
+    emotions?: JsonNullValueInput | InputJsonValue
+    sentiments?: JsonNullValueInput | InputJsonValue
+  }
+
+  export type UtteranceUncheckedUpdateManyWithoutVideoFileInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    startTime?: FloatFieldUpdateOperationsInput | number
+    endTime?: FloatFieldUpdateOperationsInput | number
+    text?: StringFieldUpdateOperationsInput | string
+    emotions?: JsonNullValueInput | InputJsonValue
+    sentiments?: JsonNullValueInput | InputJsonValue
   }
 
 

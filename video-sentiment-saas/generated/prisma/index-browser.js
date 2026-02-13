@@ -164,14 +164,56 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.ApiQuotaScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  requestUsed: 'requestUsed',
+  maxRequests: 'maxRequests',
+  lastResetDate: 'lastResetDate',
+  secretKey: 'secretKey'
+};
+
+exports.Prisma.VideoFileScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  key: 'key',
+  analyzed: 'analyzed',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.UtteranceScalarFieldEnum = {
+  id: 'id',
+  videoFileId: 'videoFileId',
+  startTime: 'startTime',
+  endTime: 'endTime',
+  text: 'text',
+  emotions: 'emotions',
+  sentiments: 'sentiments'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
 };
 
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
+};
+
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
+};
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
 };
 
 
@@ -180,7 +222,10 @@ exports.Prisma.ModelName = {
   Account: 'Account',
   Session: 'Session',
   User: 'User',
-  VerificationToken: 'VerificationToken'
+  VerificationToken: 'VerificationToken',
+  ApiQuota: 'ApiQuota',
+  VideoFile: 'VideoFile',
+  Utterance: 'Utterance'
 };
 
 /**

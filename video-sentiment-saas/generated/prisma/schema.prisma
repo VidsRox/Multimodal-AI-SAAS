@@ -56,15 +56,17 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String      @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?     @unique
   emailVerified DateTime?
   image         String?
   password      String
   accounts      Account[]
   sessions      Session[]
   posts         Post[]
+  apiQuota      ApiQuota?
+  videoFiles    VideoFile[]
 }
 
 model VerificationToken {
@@ -73,4 +75,39 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model ApiQuota {
+  id            String   @id @default(cuid())
+  userId        String   @unique
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  requestUsed   Int      @default(0)
+  maxRequests   Int      @default(10000) //10k reqs per month
+  lastResetDate DateTime @default(now())
+  secretKey     String   @unique
+}
+
+model VideoFile {
+  id         String      @id @default(cuid())
+  userId     String
+  user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  key        String      @unique
+  analyzed   Boolean     @default(false)
+  createdAt  DateTime    @default(now())
+  utterances Utterance[]
+
+  @@map("VideoFile")
+}
+
+model Utterance {
+  id          String    @id @default(cuid())
+  videoFileId String
+  startTime   Float
+  endTime     Float
+  text        String
+  emotions    Json // Array of {label, confidence}
+  sentiments  Json // Array of {label, confidence}
+  videoFile   VideoFile @relation(fields: [videoFileId], references: [id])
+
+  @@map("Utterance")
 }
