@@ -264,75 +264,8 @@ Frontend polls every 5s → displays results
 | Average Inference Time | 60-90 seconds (depends on video length) |
 | Endpoint Instance | ml.g5.xlarge (GPU) |
 
-## 🐛 Debugging & Troubleshooting
-
-**Common Issues Fixed During Development:**
-
-### 1. 212-byte Corrupted Files in S3
-**Problem:** Presigned URL uploads creating tiny corrupted files  
-**Solution:** Switched to direct server-side upload using `PutObjectCommand`
-```typescript
-// ❌ Don't use presigned URLs with FormData
-// ✅ Use direct server-side upload in /api/direct-upload
-const command = new PutObjectCommand({
-  Bucket: bucketName,
-  Key: key,
-  Body: buffer,
-  ContentType: file.type,
-});
-```
-
-### 2. SageMaker 60-Second Timeout
-**Problem:** Inference takes 60-90 seconds but API Gateway times out at 60s  
-**Solution:** Implemented async processing with polling
-```typescript
-// ❌ Don't wait for SageMaker response synchronously
-// ✅ Start analysis, return immediately, poll for results
-POST /api/start-analysis → returns fileId immediately
-GET /api/analysis-status?fileId=... → poll every 5s
-```
-
-### 3. Database ID Mismatch
-**Problem:** UUID generated for S3 key but Prisma auto-generates different ID  
-**Solution:** Use same UUID for both S3 and database
-```typescript
-const id = crypto.randomUUID();
-const key = `inference/${id}.mp4`;
-await db.videoFile.create({
-  data: { id: id, key: key, ... } // ← Pass explicit ID
-});
-```
-
-### 4. JSON Parse Errors on Utterances
-**Problem:** `JSON.parse("[object Object]")` error  
-**Solution:** Prisma auto-parses JSON fields, don't parse again
-```typescript
-// ❌ Don't double-parse
-emotions: JSON.parse(u.emotions)
-
-// ✅ Use directly
-emotions: u.emotions  // Already an object
-```
-
 
 ## 📚 Credits & Acknowledgments
 
 **Built following:**
-- [Andreas Trolle's tutorial](https://www.youtube.com/watch?v=Myo5kizoSk0) - Train & Deploy Multimodal AI
-
-**Datasets & Models:**
-- [MELD Dataset](https://affective-meld.github.io/) - Multimodal EmotionLines Dataset (Friends TV series)
-- Whisper (OpenAI) - Speech transcription
-- RoBERTa (Hugging Face) - Emotion classification
-- DistilBERT (Hugging Face) - Sentiment classification
-
-**Technologies:**
-- PyTorch & Hugging Face Transformers
-- AWS SageMaker for GPU training & deployment
-- Next.js & Vercel
-- shadcn/ui components
-
-
-**Built with ❤️ by [Your Name]**
-
-#MachineLearning #SageMaker #NextJS #PyTorch #SaaS #BuildInPublic
+- [Andreas Trolle's tutorial](https://www.youtube.com/watch?v=Myo5kizoSk0) 
